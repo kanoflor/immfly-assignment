@@ -4,14 +4,14 @@
       "id": "snack-1",
       "name": "Pringles Original",
       "priceEUR": 3.5,
-      "stock": 15,
+      "stock": 1,
       "image": "https://picsum.photos/seed/pringles/200/200"
     },
     {
       "id": "snack-2",
       "name": "KitKat Bar",
       "priceEUR": 2.2,
-      "stock": 24,
+      "stock": 2,
       "image": "https://picsum.photos/seed/kitkat/200/200"
     },
     {
@@ -41,6 +41,1014 @@
       "priceEUR": 3.0,
       "stock": 20,
       "image": "https://picsum.photos/seed/coffee/200/200"
+    },
+    {
+      "id": "snack-3",
+      "name": "Doritos Nacho Cheese",
+      "priceEUR": 2.5,
+      "stock": 15,
+      "image": "https://picsum.photos/seed/doritos/200/200"
+    },
+    {
+      "id": "snack-4",
+      "name": "Lay's Classic",
+      "priceEUR": 2.0,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/lays/200/200"
+    },
+    {
+      "id": "snack-5",
+      "name": "Snickers Bar",
+      "priceEUR": 2.3,
+      "stock": 8,
+      "image": "https://picsum.photos/seed/snickers/200/200"
+    },
+    {
+      "id": "snack-6",
+      "name": "Twix Bar",
+      "priceEUR": 2.4,
+      "stock": 7,
+      "image": "https://picsum.photos/seed/twix/200/200"
+    },
+    {
+      "id": "snack-7",
+      "name": "Oreo Cookies",
+      "priceEUR": 2.1,
+      "stock": 14,
+      "image": "https://picsum.photos/seed/oreo/200/200"
+    },
+    {
+      "id": "snack-8",
+      "name": "M&M's Peanut",
+      "priceEUR": 2.6,
+      "stock": 9,
+      "image": "https://picsum.photos/seed/mms/200/200"
+    },
+    {
+      "id": "snack-9",
+      "name": "Milky Way",
+      "priceEUR": 2.2,
+      "stock": 11,
+      "image": "https://picsum.photos/seed/milkyway/200/200"
+    },
+    {
+      "id": "snack-10",
+      "name": "Bounty Bar",
+      "priceEUR": 2.3,
+      "stock": 10,
+      "image": "https://picsum.photos/seed/bounty/200/200"
+    },
+    {
+      "id": "snack-11",
+      "name": "Cheetos Crunchy",
+      "priceEUR": 2.7,
+      "stock": 13,
+      "image": "https://picsum.photos/seed/cheetos/200/200"
+    },
+    {
+      "id": "snack-12",
+      "name": "Ruffles Original",
+      "priceEUR": 2.5,
+      "stock": 6,
+      "image": "https://picsum.photos/seed/ruffles/200/200"
+    },
+    {
+      "id": "snack-13",
+      "name": "Popcorn Salted",
+      "priceEUR": 1.8,
+      "stock": 18,
+      "image": "https://picsum.photos/seed/popcorn/200/200"
+    },
+    {
+      "id": "snack-14",
+      "name": "Haribo Goldbears",
+      "priceEUR": 2.0,
+      "stock": 16,
+      "image": "https://picsum.photos/seed/haribo/200/200"
+    },
+    {
+      "id": "snack-15",
+      "name": "Skittles",
+      "priceEUR": 2.1,
+      "stock": 17,
+      "image": "https://picsum.photos/seed/skittles/200/200"
+    },
+    {
+      "id": "snack-16",
+      "name": "Mars Bar",
+      "priceEUR": 2.2,
+      "stock": 19,
+      "image": "https://picsum.photos/seed/mars/200/200"
+    },
+    {
+      "id": "snack-17",
+      "name": "Kinder Bueno",
+      "priceEUR": 2.4,
+      "stock": 8,
+      "image": "https://picsum.photos/seed/kinder/200/200"
+    },
+    {
+      "id": "snack-18",
+      "name": "Toblerone Mini",
+      "priceEUR": 2.7,
+      "stock": 7,
+      "image": "https://picsum.photos/seed/toblerone/200/200"
+    },
+    {
+      "id": "snack-19",
+      "name": "Hershey's Kisses",
+      "priceEUR": 2.8,
+      "stock": 5,
+      "image": "https://picsum.photos/seed/hershey/200/200"
+    },
+    {
+      "id": "snack-20",
+      "name": "Reese's Cups",
+      "priceEUR": 2.9,
+      "stock": 6,
+      "image": "https://picsum.photos/seed/reeses/200/200"
+    },
+    {
+      "id": "drink-3",
+      "name": "Pepsi 330ml",
+      "priceEUR": 2.7,
+      "stock": 25,
+      "image": "https://picsum.photos/seed/pepsi/200/200"
+    },
+    {
+      "id": "drink-4",
+      "name": "Sprite 330ml",
+      "priceEUR": 2.6,
+      "stock": 22,
+      "image": "https://picsum.photos/seed/sprite/200/200"
+    },
+    {
+      "id": "drink-5",
+      "name": "Fanta Orange 330ml",
+      "priceEUR": 2.5,
+      "stock": 20,
+      "image": "https://picsum.photos/seed/fanta/200/200"
+    },
+    {
+      "id": "drink-6",
+      "name": "Red Bull 250ml",
+      "priceEUR": 3.0,
+      "stock": 18,
+      "image": "https://picsum.photos/seed/redbull/200/200"
+    },
+    {
+      "id": "drink-7",
+      "name": "Lipton Ice Tea 330ml",
+      "priceEUR": 2.4,
+      "stock": 15,
+      "image": "https://picsum.photos/seed/lipton/200/200"
+    },
+    {
+      "id": "drink-8",
+      "name": "San Pellegrino 500ml",
+      "priceEUR": 2.9,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/pellegrino/200/200"
+    },
+    {
+      "id": "drink-9",
+      "name": "Monster Energy 500ml",
+      "priceEUR": 3.2,
+      "stock": 10,
+      "image": "https://picsum.photos/seed/monster/200/200"
+    },
+    {
+      "id": "drink-10",
+      "name": "Nestea Lemon 330ml",
+      "priceEUR": 2.3,
+      "stock": 14,
+      "image": "https://picsum.photos/seed/nestea/200/200"
+    },
+    {
+      "id": "drink-11",
+      "name": "Evian Water 500ml",
+      "priceEUR": 2.0,
+      "stock": 16,
+      "image": "https://picsum.photos/seed/evian/200/200"
+    },
+    {
+      "id": "drink-12",
+      "name": "Vitamin Water 500ml",
+      "priceEUR": 2.8,
+      "stock": 13,
+      "image": "https://picsum.photos/seed/vitaminwater/200/200"
+    },
+    {
+      "id": "drink-13",
+      "name": "Appletiser 330ml",
+      "priceEUR": 2.7,
+      "stock": 11,
+      "image": "https://picsum.photos/seed/appletiser/200/200"
+    },
+    {
+      "id": "drink-14",
+      "name": "Tonic Water 200ml",
+      "priceEUR": 2.2,
+      "stock": 9,
+      "image": "https://picsum.photos/seed/tonic/200/200"
+    },
+    {
+      "id": "drink-15",
+      "name": "Ginger Ale 200ml",
+      "priceEUR": 2.3,
+      "stock": 8,
+      "image": "https://picsum.photos/seed/gingerale/200/200"
+    },
+    {
+      "id": "combo-2",
+      "name": "Chips + Soda",
+      "priceEUR": 5.5,
+      "stock": 8,
+      "image": "https://picsum.photos/seed/chipssoda/200/200"
+    },
+    {
+      "id": "combo-3",
+      "name": "Candy + Juice",
+      "priceEUR": 4.9,
+      "stock": 7,
+      "image": "https://picsum.photos/seed/candyjuice/200/200"
+    },
+    {
+      "id": "combo-4",
+      "name": "Chocolate + Coffee",
+      "priceEUR": 5.8,
+      "stock": 6,
+      "image": "https://picsum.photos/seed/chococoffee/200/200"
+    },
+    {
+      "id": "combo-5",
+      "name": "Sandwich + Water",
+      "priceEUR": 6.2,
+      "stock": 5,
+      "image": "https://picsum.photos/seed/sandwichwater/200/200"
+    },
+    {
+      "id": "combo-6",
+      "name": "Snack Box",
+      "priceEUR": 7.5,
+      "stock": 4,
+      "image": "https://picsum.photos/seed/snackbox/200/200"
+    },
+    {
+      "id": "combo-7",
+      "name": "Breakfast Combo",
+      "priceEUR": 8.0,
+      "stock": 3,
+      "image": "https://picsum.photos/seed/breakfast/200/200"
+    },
+    {
+      "id": "combo-8",
+      "name": "Lunch Combo",
+      "priceEUR": 9.5,
+      "stock": 2,
+      "image": "https://picsum.photos/seed/lunch/200/200"
+    },
+    {
+      "id": "combo-9",
+      "name": "Dinner Combo",
+      "priceEUR": 10.0,
+      "stock": 1,
+      "image": "https://picsum.photos/seed/dinner/200/200"
+    },
+    {
+      "id": "combo-10",
+      "name": "Kids Combo",
+      "priceEUR": 5.0,
+      "stock": 6,
+      "image": "https://picsum.photos/seed/kidscombo/200/200"
+    },
+    {
+      "id": "combo-11",
+      "name": "Vegan Combo",
+      "priceEUR": 7.0,
+      "stock": 5,
+      "image": "https://picsum.photos/seed/vegancombo/200/200"
+    },
+    {
+      "id": "combo-12",
+      "name": "Gluten-Free Combo",
+      "priceEUR": 7.2,
+      "stock": 4,
+      "image": "https://picsum.photos/seed/glutenfree/200/200"
+    },
+    {
+      "id": "combo-13",
+      "name": "Sweet Tooth Combo",
+      "priceEUR": 6.8,
+      "stock": 3,
+      "image": "https://picsum.photos/seed/sweettooth/200/200"
+    },
+    {
+      "id": "combo-14",
+      "name": "Energy Combo",
+      "priceEUR": 8.5,
+      "stock": 2,
+      "image": "https://picsum.photos/seed/energycombo/200/200"
+    },
+    {
+      "id": "combo-15",
+      "name": "Family Combo",
+      "priceEUR": 12.0,
+      "stock": 1,
+      "image": "https://picsum.photos/seed/familycombo/200/200"
+    },
+    {
+      "id": "coffee-2",
+      "name": "Espresso",
+      "priceEUR": 2.5,
+      "stock": 18,
+      "image": "https://picsum.photos/seed/espresso/200/200"
+    },
+    {
+      "id": "coffee-3",
+      "name": "Cappuccino",
+      "priceEUR": 3.2,
+      "stock": 16,
+      "image": "https://picsum.photos/seed/cappuccino/200/200"
+    },
+    {
+      "id": "coffee-4",
+      "name": "Latte",
+      "priceEUR": 3.4,
+      "stock": 14,
+      "image": "https://picsum.photos/seed/latte/200/200"
+    },
+    {
+      "id": "coffee-5",
+      "name": "Mocha",
+      "priceEUR": 3.6,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/mocha/200/200"
+    },
+    {
+      "id": "coffee-6",
+      "name": "Macchiato",
+      "priceEUR": 3.3,
+      "stock": 10,
+      "image": "https://picsum.photos/seed/macchiato/200/200"
+    },
+    {
+      "id": "coffee-7",
+      "name": "Flat White",
+      "priceEUR": 3.5,
+      "stock": 8,
+      "image": "https://picsum.photos/seed/flatwhite/200/200"
+    },
+    {
+      "id": "coffee-8",
+      "name": "Iced Coffee",
+      "priceEUR": 3.7,
+      "stock": 6,
+      "image": "https://picsum.photos/seed/icedcoffee/200/200"
+    },
+    {
+      "id": "coffee-9",
+      "name": "Affogato",
+      "priceEUR": 4.0,
+      "stock": 4,
+      "image": "https://picsum.photos/seed/affogato/200/200"
+    },
+    {
+      "id": "coffee-10",
+      "name": "Irish Coffee",
+      "priceEUR": 4.5,
+      "stock": 2,
+      "image": "https://picsum.photos/seed/irishcoffee/200/200"
+    },
+    {
+      "id": "coffee-11",
+      "name": "Cortado",
+      "priceEUR": 3.1,
+      "stock": 5,
+      "image": "https://picsum.photos/seed/cortado/200/200"
+    },
+    {
+      "id": "coffee-12",
+      "name": "Doppio",
+      "priceEUR": 3.8,
+      "stock": 3,
+      "image": "https://picsum.photos/seed/doppio/200/200"
+    },
+    {
+      "id": "coffee-13",
+      "name": "Ristretto",
+      "priceEUR": 3.0,
+      "stock": 7,
+      "image": "https://picsum.photos/seed/ristretto/200/200"
+    },
+    {
+      "id": "coffee-14",
+      "name": "Vienna Coffee",
+      "priceEUR": 4.2,
+      "stock": 6,
+      "image": "https://picsum.photos/seed/vienna/200/200"
+    },
+    {
+      "id": "coffee-15",
+      "name": "Turkish Coffee",
+      "priceEUR": 4.0,
+      "stock": 8,
+      "image": "https://picsum.photos/seed/turkish/200/200"
+    },
+    {
+      "id": "snack-21",
+      "name": "Pretzel Sticks",
+      "priceEUR": 1.9,
+      "stock": 10,
+      "image": "https://picsum.photos/seed/pretzel/200/200"
+    },
+    {
+      "id": "snack-22",
+      "name": "Rice Cakes",
+      "priceEUR": 1.7,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/ricecake/200/200"
+    },
+    {
+      "id": "snack-23",
+      "name": "Granola Bar",
+      "priceEUR": 2.0,
+      "stock": 14,
+      "image": "https://picsum.photos/seed/granola/200/200"
+    },
+    {
+      "id": "snack-24",
+      "name": "Trail Mix",
+      "priceEUR": 2.8,
+      "stock": 16,
+      "image": "https://picsum.photos/seed/trailmix/200/200"
+    },
+    {
+      "id": "snack-25",
+      "name": "Fruit Snacks",
+      "priceEUR": 2.1,
+      "stock": 18,
+      "image": "https://picsum.photos/seed/fruitsnack/200/200"
+    },
+    {
+      "id": "snack-26",
+      "name": "Peanut Butter Crackers",
+      "priceEUR": 2.3,
+      "stock": 20,
+      "image": "https://picsum.photos/seed/pbcrackers/200/200"
+    },
+    {
+      "id": "snack-27",
+      "name": "Cheese Sticks",
+      "priceEUR": 2.5,
+      "stock": 22,
+      "image": "https://picsum.photos/seed/cheesestick/200/200"
+    },
+    {
+      "id": "snack-28",
+      "name": "Almonds",
+      "priceEUR": 2.7,
+      "stock": 24,
+      "image": "https://picsum.photos/seed/almonds/200/200"
+    },
+    {
+      "id": "snack-29",
+      "name": "Cashews",
+      "priceEUR": 2.9,
+      "stock": 26,
+      "image": "https://picsum.photos/seed/cashews/200/200"
+    },
+    {
+      "id": "snack-30",
+      "name": "Pistachios",
+      "priceEUR": 3.1,
+      "stock": 28,
+      "image": "https://picsum.photos/seed/pistachios/200/200"
+    },
+    {
+      "id": "snack-31",
+      "name": "Walnuts",
+      "priceEUR": 3.3,
+      "stock": 30,
+      "image": "https://picsum.photos/seed/walnuts/200/200"
+    },
+    {
+      "id": "snack-32",
+      "name": "Hazelnuts",
+      "priceEUR": 3.5,
+      "stock": 32,
+      "image": "https://picsum.photos/seed/hazelnuts/200/200"
+    },
+    {
+      "id": "snack-33",
+      "name": "Sunflower Seeds",
+      "priceEUR": 1.6,
+      "stock": 34,
+      "image": "https://picsum.photos/seed/sunflower/200/200"
+    },
+    {
+      "id": "snack-34",
+      "name": "Pumpkin Seeds",
+      "priceEUR": 1.8,
+      "stock": 36,
+      "image": "https://picsum.photos/seed/pumpkin/200/200"
+    },
+    {
+      "id": "snack-35",
+      "name": "Dried Mango",
+      "priceEUR": 2.2,
+      "stock": 38,
+      "image": "https://picsum.photos/seed/driedmango/200/200"
+    },
+    {
+      "id": "snack-36",
+      "name": "Dried Pineapple",
+      "priceEUR": 2.4,
+      "stock": 40,
+      "image": "https://picsum.photos/seed/driedpineapple/200/200"
+    },
+    {
+      "id": "snack-37",
+      "name": "Dried Apricot",
+      "priceEUR": 2.6,
+      "stock": 42,
+      "image": "https://picsum.photos/seed/driedapricot/200/200"
+    },
+    {
+      "id": "snack-38",
+      "name": "Dried Cranberries",
+      "priceEUR": 2.8,
+      "stock": 44,
+      "image": "https://picsum.photos/seed/driedcranberry/200/200"
+    },
+    {
+      "id": "snack-39",
+      "name": "Banana Chips",
+      "priceEUR": 1.9,
+      "stock": 46,
+      "image": "https://picsum.photos/seed/bananachips/200/200"
+    },
+    {
+      "id": "snack-40",
+      "name": "Apple Chips",
+      "priceEUR": 2.1,
+      "stock": 48,
+      "image": "https://picsum.photos/seed/applechips/200/200"
+    },
+    {
+      "id": "snack-41",
+      "name": "Veggie Chips",
+      "priceEUR": 2.3,
+      "stock": 50,
+      "image": "https://picsum.photos/seed/veggiechips/200/200"
+    },
+    {
+      "id": "snack-42",
+      "name": "Seaweed Snacks",
+      "priceEUR": 2.5,
+      "stock": 52,
+      "image": "https://picsum.photos/seed/seaweed/200/200"
+    },
+    {
+      "id": "snack-43",
+      "name": "Beef Jerky",
+      "priceEUR": 3.7,
+      "stock": 54,
+      "image": "https://picsum.photos/seed/beefjerky/200/200"
+    },
+    {
+      "id": "snack-44",
+      "name": "Turkey Jerky",
+      "priceEUR": 3.9,
+      "stock": 56,
+      "image": "https://picsum.photos/seed/turkeyjerky/200/200"
+    },
+    {
+      "id": "snack-45",
+      "name": "Salami Sticks",
+      "priceEUR": 2.8,
+      "stock": 58,
+      "image": "https://picsum.photos/seed/salami/200/200"
+    },
+    {
+      "id": "snack-46",
+      "name": "Cheddar Bites",
+      "priceEUR": 2.6,
+      "stock": 60,
+      "image": "https://picsum.photos/seed/cheddarbites/200/200"
+    },
+    {
+      "id": "snack-47",
+      "name": "Parmesan Crisps",
+      "priceEUR": 2.7,
+      "stock": 62,
+      "image": "https://picsum.photos/seed/parmesan/200/200"
+    },
+    {
+      "id": "snack-48",
+      "name": "Crackers",
+      "priceEUR": 1.5,
+      "stock": 64,
+      "image": "https://picsum.photos/seed/crackers/200/200"
+    },
+    {
+      "id": "snack-49",
+      "name": "Breadsticks",
+      "priceEUR": 1.7,
+      "stock": 66,
+      "image": "https://picsum.photos/seed/breadsticks/200/200"
+    },
+    {
+      "id": "snack-50",
+      "name": "Mini Croissant",
+      "priceEUR": 2.0,
+      "stock": 68,
+      "image": "https://picsum.photos/seed/croissant/200/200"
+    },
+    {
+      "id": "snack-51",
+      "name": "Mini Muffin",
+      "priceEUR": 2.2,
+      "stock": 70,
+      "image": "https://picsum.photos/seed/muffin/200/200"
+    },
+    {
+      "id": "snack-52",
+      "name": "Mini Donut",
+      "priceEUR": 2.4,
+      "stock": 72,
+      "image": "https://picsum.photos/seed/donut/200/200"
+    },
+    {
+      "id": "snack-53",
+      "name": "Mini Brownie",
+      "priceEUR": 2.6,
+      "stock": 74,
+      "image": "https://picsum.photos/seed/brownie/200/200"
+    },
+    {
+      "id": "snack-54",
+      "name": "Mini Cookie",
+      "priceEUR": 2.8,
+      "stock": 76,
+      "image": "https://picsum.photos/seed/minicookie/200/200"
+    },
+    {
+      "id": "snack-55",
+      "name": "Mini Danish",
+      "priceEUR": 3.0,
+      "stock": 78,
+      "image": "https://picsum.photos/seed/danish/200/200"
+    },
+    {
+      "id": "snack-56",
+      "name": "Mini Eclair",
+      "priceEUR": 3.2,
+      "stock": 80,
+      "image": "https://picsum.photos/seed/eclair/200/200"
+    },
+    {
+      "id": "snack-57",
+      "name": "Mini Tart",
+      "priceEUR": 3.4,
+      "stock": 82,
+      "image": "https://picsum.photos/seed/tart/200/200"
+    },
+    {
+      "id": "snack-58",
+      "name": "Mini Cheesecake",
+      "priceEUR": 3.6,
+      "stock": 84,
+      "image": "https://picsum.photos/seed/cheesecake/200/200"
+    },
+    {
+      "id": "snack-59",
+      "name": "Mini Cupcake",
+      "priceEUR": 3.8,
+      "stock": 86,
+      "image": "https://picsum.photos/seed/cupcake/200/200"
+    },
+    {
+      "id": "snack-60",
+      "name": "Mini Macaron",
+      "priceEUR": 4.0,
+      "stock": 88,
+      "image": "https://picsum.photos/seed/macaron/200/200"
+    },
+    {
+      "id": "snack-61",
+      "name": "Mini Profiterole",
+      "priceEUR": 4.2,
+      "stock": 90,
+      "image": "https://picsum.photos/seed/profiterole/200/200"
+    },
+    {
+      "id": "snack-62",
+      "name": "Mini Cannoli",
+      "priceEUR": 4.4,
+      "stock": 92,
+      "image": "https://picsum.photos/seed/cannoli/200/200"
+    },
+    {
+      "id": "snack-63",
+      "name": "Mini Churro",
+      "priceEUR": 4.6,
+      "stock": 94,
+      "image": "https://picsum.photos/seed/churro/200/200"
+    },
+    {
+      "id": "snack-64",
+      "name": "Mini Scone",
+      "priceEUR": 4.8,
+      "stock": 96,
+      "image": "https://picsum.photos/seed/scone/200/200"
+    },
+    {
+      "id": "snack-65",
+      "name": "Mini Madeleine",
+      "priceEUR": 5.0,
+      "stock": 98,
+      "image": "https://picsum.photos/seed/madeleine/200/200"
+    },
+    {
+      "id": "snack-66",
+      "name": "Mini Financier",
+      "priceEUR": 5.2,
+      "stock": 100,
+      "image": "https://picsum.photos/seed/financier/200/200"
+    },
+    {
+      "id": "snack-67",
+      "name": "Mini Palmier",
+      "priceEUR": 5.4,
+      "stock": 102,
+      "image": "https://picsum.photos/seed/palmier/200/200"
+    },
+    {
+      "id": "snack-68",
+      "name": "Mini Florentine",
+      "priceEUR": 5.6,
+      "stock": 104,
+      "image": "https://picsum.photos/seed/florentine/200/200"
+    },
+    {
+      "id": "snack-69",
+      "name": "Mini Biscotti",
+      "priceEUR": 5.8,
+      "stock": 106,
+      "image": "https://picsum.photos/seed/biscotti/200/200"
+    },
+    {
+      "id": "snack-70",
+      "name": "Mini Amaretti",
+      "priceEUR": 6.0,
+      "stock": 108,
+      "image": "https://picsum.photos/seed/amaretti/200/200"
+    },
+    {
+      "id": "snack-71",
+      "name": "Mini Cantucci",
+      "priceEUR": 6.2,
+      "stock": 110,
+      "image": "https://picsum.photos/seed/cantucci/200/200"
+    },
+    {
+      "id": "snack-72",
+      "name": "Mini Pizzelle",
+      "priceEUR": 6.4,
+      "stock": 112,
+      "image": "https://picsum.photos/seed/pizzelle/200/200"
+    },
+    {
+      "id": "snack-73",
+      "name": "Mini Zeppole",
+      "priceEUR": 6.6,
+      "stock": 114,
+      "image": "https://picsum.photos/seed/zeppole/200/200"
+    },
+    {
+      "id": "snack-74",
+      "name": "Mini Sfogliatella",
+      "priceEUR": 6.8,
+      "stock": 116,
+      "image": "https://picsum.photos/seed/sfogliatella/200/200"
+    },
+    {
+      "id": "snack-75",
+      "name": "Mini Babka",
+      "priceEUR": 7.0,
+      "stock": 118,
+      "image": "https://picsum.photos/seed/babka/200/200"
+    },
+    {
+      "id": "snack-76",
+      "name": "Mini Rugelach",
+      "priceEUR": 7.2,
+      "stock": 120,
+      "image": "https://picsum.photos/seed/rugelach/200/200"
+    },
+    {
+      "id": "snack-77",
+      "name": "Mini Mandelbrot",
+      "priceEUR": 7.4,
+      "stock": 122,
+      "image": "https://picsum.photos/seed/mandelbrot/200/200"
+    },
+    {
+      "id": "snack-78",
+      "name": "Mini Kichel",
+      "priceEUR": 7.6,
+      "stock": 124,
+      "image": "https://picsum.photos/seed/kichel/200/200"
+    },
+    {
+      "id": "snack-79",
+      "name": "Mini Teiglach",
+      "priceEUR": 7.8,
+      "stock": 126,
+      "image": "https://picsum.photos/seed/teiglach/200/200"
+    },
+    {
+      "id": "snack-80",
+      "name": "Mini Hamantaschen",
+      "priceEUR": 8.0,
+      "stock": 128,
+      "image": "https://picsum.photos/seed/hamantaschen/200/200"
+    },
+    {
+      "id": "snack-81",
+      "name": "Mini Challah",
+      "priceEUR": 8.2,
+      "stock": 130,
+      "image": "https://picsum.photos/seed/challah/200/200"
+    },
+    {
+      "id": "snack-82",
+      "name": "Mini Babka Roll",
+      "priceEUR": 8.4,
+      "stock": 132,
+      "image": "https://picsum.photos/seed/babkaroll/200/200"
+    },
+    {
+      "id": "snack-83",
+      "name": "Mini Kugel",
+      "priceEUR": 8.6,
+      "stock": 134,
+      "image": "https://picsum.photos/seed/kugel/200/200"
+    },
+    {
+      "id": "snack-84",
+      "name": "Mini Blintz",
+      "priceEUR": 8.8,
+      "stock": 136,
+      "image": "https://picsum.photos/seed/blintz/200/200"
+    },
+    {
+      "id": "snack-85",
+      "name": "Mini Knish",
+      "priceEUR": 9.0,
+      "stock": 138,
+      "image": "https://picsum.photos/seed/knish/200/200"
+    },
+    {
+      "id": "snack-86",
+      "name": "Mini Bourekas",
+      "priceEUR": 9.2,
+      "stock": 140,
+      "image": "https://picsum.photos/seed/bourekas/200/200"
+    },
+    {
+      "id": "snack-87",
+      "name": "Mini Sambusak",
+      "priceEUR": 9.4,
+      "stock": 142,
+      "image": "https://picsum.photos/seed/sambusak/200/200"
+    },
+    {
+      "id": "snack-88",
+      "name": "Mini Sufganiyah",
+      "priceEUR": 9.6,
+      "stock": 144,
+      "image": "https://picsum.photos/seed/sufganiyah/200/200"
+    },
+    {
+      "id": "snack-89",
+      "name": "Mini Latke",
+      "priceEUR": 9.8,
+      "stock": 146,
+      "image": "https://picsum.photos/seed/latke/200/200"
+    },
+    {
+      "id": "snack-90",
+      "name": "Mini Kreplach",
+      "priceEUR": 10.0,
+      "stock": 148,
+      "image": "https://picsum.photos/seed/kreplach/200/200"
+    },
+    {
+      "id": "snack-91",
+      "name": "Mini Matzo Ball",
+      "priceEUR": 10.2,
+      "stock": 150,
+      "image": "https://picsum.photos/seed/matzoball/200/200"
+    },
+    {
+      "id": "snack-92",
+      "name": "Mini Gefilte Fish",
+      "priceEUR": 10.4,
+      "stock": 152,
+      "image": "https://picsum.photos/seed/gefilte/200/200"
+    },
+    {
+      "id": "snack-93",
+      "name": "Mini Kishka",
+      "priceEUR": 10.6,
+      "stock": 154,
+      "image": "https://picsum.photos/seed/kishka/200/200"
+    },
+    {
+      "id": "snack-94",
+      "name": "Mini Cholent",
+      "priceEUR": 10.8,
+      "stock": 156,
+      "image": "https://picsum.photos/seed/cholent/200/200"
+    },
+    {
+      "id": "snack-95",
+      "name": "Mini Tzimmes",
+      "priceEUR": 11.0,
+      "stock": 158,
+      "image": "https://picsum.photos/seed/tzimmes/200/200"
+    },
+    {
+      "id": "snack-96",
+      "name": "Mini Kugelhopf",
+      "priceEUR": 11.2,
+      "stock": 160,
+      "image": "https://picsum.photos/seed/kugelhopf/200/200"
+    },
+    {
+      "id": "snack-97",
+      "name": "Mini Babka Muffin",
+      "priceEUR": 11.4,
+      "stock": 162,
+      "image": "https://picsum.photos/seed/babkamuffin/200/200"
+    },
+    {
+      "id": "snack-98",
+      "name": "Mini Challah Roll",
+      "priceEUR": 11.6,
+      "stock": 164,
+      "image": "https://picsum.photos/seed/challahroll/200/200"
+    },
+    {
+      "id": "snack-99",
+      "name": "Mini Poppyseed Roll",
+      "priceEUR": 11.8,
+      "stock": 166,
+      "image": "https://picsum.photos/seed/poppyseed/200/200"
+    },
+    {
+      "id": "snack-100",
+      "name": "Mini Cinnamon Roll",
+      "priceEUR": 12.0,
+      "stock": 168,
+      "image": "https://picsum.photos/seed/cinnamonroll/200/200"
+    },
+    {
+      "id": "snack-101",
+      "name": "Mini Chocolate Roll",
+      "priceEUR": 12.2,
+      "stock": 170,
+      "image": "https://picsum.photos/seed/chocolateroll/200/200"
+    },
+    {
+      "id": "snack-102",
+      "name": "Mini Raisin Roll",
+      "priceEUR": 12.4,
+      "stock": 172,
+      "image": "https://picsum.photos/seed/raisinroll/200/200"
+    },
+    {
+      "id": "snack-103",
+      "name": "Mini Walnut Roll",
+      "priceEUR": 12.6,
+      "stock": 174,
+      "image": "https://picsum.photos/seed/walnutroll/200/200"
+    },
+    {
+      "id": "snack-104",
+      "name": "Mini Almond Roll",
+      "priceEUR": 12.8,
+      "stock": 176,
+      "image": "https://picsum.photos/seed/almondroll/200/200"
+    },
+    {
+      "id": "snack-105",
+      "name": "Mini Hazelnut Roll",
+      "priceEUR": 13.0,
+      "stock": 178,
+      "image": "https://picsum.photos/seed/hazelnutroll/200/200"
     }
   ]
 }
