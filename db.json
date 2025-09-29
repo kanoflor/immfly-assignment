@@ -4,57 +4,29 @@
       "id": "snack-1",
       "name": "Pringles Original",
       "priceEUR": 3.5,
-      "stock": 1,
+      "stock": 10,
       "image": "https://picsum.photos/seed/pringles/200/200"
     },
     {
       "id": "snack-2",
       "name": "KitKat Bar",
       "priceEUR": 2.2,
-      "stock": 2,
+      "stock": 15,
       "image": "https://picsum.photos/seed/kitkat/200/200"
-    },
-    {
-      "id": "drink-1",
-      "name": "Coca-Cola 330ml",
-      "priceEUR": 2.8,
-      "stock": 30,
-      "image": "https://picsum.photos/seed/coke/200/200"
-    },
-    {
-      "id": "drink-2",
-      "name": "Still Water 500ml",
-      "priceEUR": 1.5,
-      "stock": 40,
-      "image": "https://picsum.photos/seed/water/200/200"
-    },
-    {
-      "id": "combo-1",
-      "name": "Sandwich + Drink",
-      "priceEUR": 6.9,
-      "stock": 10,
-      "image": "https://picsum.photos/seed/combo/200/200"
-    },
-    {
-      "id": "coffee-1",
-      "name": "Americano",
-      "priceEUR": 3.0,
-      "stock": 20,
-      "image": "https://picsum.photos/seed/coffee/200/200"
     },
     {
       "id": "snack-3",
       "name": "Doritos Nacho Cheese",
       "priceEUR": 2.5,
-      "stock": 15,
+      "stock": 12,
       "image": "https://picsum.photos/seed/doritos/200/200"
     },
     {
       "id": "snack-4",
-      "name": "Lay's Classic",
-      "priceEUR": 2.0,
-      "stock": 12,
-      "image": "https://picsum.photos/seed/lays/200/200"
+      "name": "Oreo Cookies",
+      "priceEUR": 2.1,
+      "stock": 20,
+      "image": "https://picsum.photos/seed/oreo/200/200"
     },
     {
       "id": "snack-5",
@@ -62,6 +34,83 @@
       "priceEUR": 2.3,
       "stock": 8,
       "image": "https://picsum.photos/seed/snickers/200/200"
+    },
+    {
+      "id": "drink-1",
+      "name": "Coca-Cola 330ml",
+      "priceEUR": 2.8,
+      "stock": 25,
+      "image": "https://picsum.photos/seed/coke/200/200"
+    },
+    {
+      "id": "drink-2",
+      "name": "Still Water 500ml",
+      "priceEUR": 1.5,
+      "stock": 30,
+      "image": "https://picsum.photos/seed/water/200/200"
+    },
+    {
+      "id": "drink-3",
+      "name": "Pepsi 330ml",
+      "priceEUR": 2.7,
+      "stock": 20,
+      "image": "https://picsum.photos/seed/pepsi/200/200"
+    },
+    {
+      "id": "drink-4",
+      "name": "Red Bull 250ml",
+      "priceEUR": 3.0,
+      "stock": 15,
+      "image": "https://picsum.photos/seed/redbull/200/200"
+    },
+    {
+      "id": "coffee-1",
+      "name": "Americano",
+      "priceEUR": 3.0,
+      "stock": 18,
+      "image": "https://picsum.photos/seed/coffee/200/200"
+    },
+    {
+      "id": "coffee-2",
+      "name": "Espresso",
+      "priceEUR": 2.5,
+      "stock": 16,
+      "image": "https://picsum.photos/seed/espresso/200/200"
+    },
+    {
+      "id": "coffee-3",
+      "name": "Cappuccino",
+      "priceEUR": 3.2,
+      "stock": 14,
+      "image": "https://picsum.photos/seed/cappuccino/200/200"
+    },
+    {
+      "id": "coffee-4",
+      "name": "Latte",
+      "priceEUR": 3.4,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/latte/200/200"
+    },
+    {
+      "id": "combo-1",
+      "name": "Sandwich + Drink",
+      "priceEUR": 6.9,
+      "stock": 8,
+      "image": "https://picsum.photos/seed/combo/200/200"
+    },
+    {
+      "id": "combo-2",
+      "name": "Chips + Soda",
+      "priceEUR": 5.5,
+      "stock": 6,
+      "image": "https://picsum.photos/seed/chipssoda/200/200"
+    },
+    {
+      "id": "combo-3",
+      "name": "Breakfast Combo",
+      "priceEUR": 8.0,
+      "stock": 5,
+      "image": "https://picsum.photos/seed/breakfast/200/200"
     },
     {
       "id": "snack-6",
@@ -72,129 +121,101 @@
     },
     {
       "id": "snack-7",
-      "name": "Oreo Cookies",
-      "priceEUR": 2.1,
-      "stock": 14,
-      "image": "https://picsum.photos/seed/oreo/200/200"
-    },
-    {
-      "id": "snack-8",
       "name": "M&M's Peanut",
       "priceEUR": 2.6,
       "stock": 9,
       "image": "https://picsum.photos/seed/mms/200/200"
     },
     {
-      "id": "snack-9",
+      "id": "snack-8",
       "name": "Milky Way",
       "priceEUR": 2.2,
       "stock": 11,
       "image": "https://picsum.photos/seed/milkyway/200/200"
     },
     {
-      "id": "snack-10",
+      "id": "snack-9",
       "name": "Bounty Bar",
       "priceEUR": 2.3,
       "stock": 10,
       "image": "https://picsum.photos/seed/bounty/200/200"
     },
     {
-      "id": "snack-11",
+      "id": "snack-10",
       "name": "Cheetos Crunchy",
       "priceEUR": 2.7,
       "stock": 13,
       "image": "https://picsum.photos/seed/cheetos/200/200"
     },
     {
-      "id": "snack-12",
-      "name": "Ruffles Original",
-      "priceEUR": 2.5,
-      "stock": 6,
-      "image": "https://picsum.photos/seed/ruffles/200/200"
+      "id": "snack-11",
+      "name": "Lay's Classic",
+      "priceEUR": 2.0,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/lays/200/200"
     },
     {
-      "id": "snack-13",
+      "id": "snack-12",
       "name": "Popcorn Salted",
       "priceEUR": 1.8,
       "stock": 18,
       "image": "https://picsum.photos/seed/popcorn/200/200"
     },
     {
-      "id": "snack-14",
+      "id": "snack-13",
       "name": "Haribo Goldbears",
       "priceEUR": 2.0,
       "stock": 16,
       "image": "https://picsum.photos/seed/haribo/200/200"
     },
     {
-      "id": "snack-15",
+      "id": "snack-14",
       "name": "Skittles",
       "priceEUR": 2.1,
       "stock": 17,
       "image": "https://picsum.photos/seed/skittles/200/200"
     },
     {
-      "id": "snack-16",
+      "id": "snack-15",
       "name": "Mars Bar",
       "priceEUR": 2.2,
       "stock": 19,
       "image": "https://picsum.photos/seed/mars/200/200"
     },
     {
-      "id": "snack-17",
+      "id": "snack-16",
       "name": "Kinder Bueno",
       "priceEUR": 2.4,
       "stock": 8,
       "image": "https://picsum.photos/seed/kinder/200/200"
     },
     {
-      "id": "snack-18",
+      "id": "snack-17",
       "name": "Toblerone Mini",
       "priceEUR": 2.7,
       "stock": 7,
       "image": "https://picsum.photos/seed/toblerone/200/200"
     },
     {
-      "id": "snack-19",
-      "name": "Hershey's Kisses",
-      "priceEUR": 2.8,
-      "stock": 5,
-      "image": "https://picsum.photos/seed/hershey/200/200"
-    },
-    {
-      "id": "snack-20",
+      "id": "snack-18",
       "name": "Reese's Cups",
       "priceEUR": 2.9,
       "stock": 6,
       "image": "https://picsum.photos/seed/reeses/200/200"
     },
     {
-      "id": "drink-3",
-      "name": "Pepsi 330ml",
-      "priceEUR": 2.7,
-      "stock": 25,
-      "image": "https://picsum.photos/seed/pepsi/200/200"
-    },
-    {
-      "id": "drink-4",
+      "id": "drink-5",
       "name": "Sprite 330ml",
       "priceEUR": 2.6,
       "stock": 22,
       "image": "https://picsum.photos/seed/sprite/200/200"
     },
     {
-      "id": "drink-5",
+      "id": "drink-6",
       "name": "Fanta Orange 330ml",
       "priceEUR": 2.5,
       "stock": 20,
       "image": "https://picsum.photos/seed/fanta/200/200"
-    },
-    {
-      "id": "drink-6",
-      "name": "Red Bull 250ml",
-      "priceEUR": 3.0,
-      "stock": 18,
-      "image": "https://picsum.photos/seed/redbull/200/200"
     },
     {
       "id": "drink-7",
@@ -219,164 +240,17 @@
     },
     {
       "id": "drink-10",
-      "name": "Nestea Lemon 330ml",
-      "priceEUR": 2.3,
-      "stock": 14,
-      "image": "https://picsum.photos/seed/nestea/200/200"
-    },
-    {
-      "id": "drink-11",
       "name": "Evian Water 500ml",
       "priceEUR": 2.0,
       "stock": 16,
       "image": "https://picsum.photos/seed/evian/200/200"
     },
     {
-      "id": "drink-12",
+      "id": "drink-11",
       "name": "Vitamin Water 500ml",
       "priceEUR": 2.8,
       "stock": 13,
       "image": "https://picsum.photos/seed/vitaminwater/200/200"
-    },
-    {
-      "id": "drink-13",
-      "name": "Appletiser 330ml",
-      "priceEUR": 2.7,
-      "stock": 11,
-      "image": "https://picsum.photos/seed/appletiser/200/200"
-    },
-    {
-      "id": "drink-14",
-      "name": "Tonic Water 200ml",
-      "priceEUR": 2.2,
-      "stock": 9,
-      "image": "https://picsum.photos/seed/tonic/200/200"
-    },
-    {
-      "id": "drink-15",
-      "name": "Ginger Ale 200ml",
-      "priceEUR": 2.3,
-      "stock": 8,
-      "image": "https://picsum.photos/seed/gingerale/200/200"
-    },
-    {
-      "id": "combo-2",
-      "name": "Chips + Soda",
-      "priceEUR": 5.5,
-      "stock": 8,
-      "image": "https://picsum.photos/seed/chipssoda/200/200"
-    },
-    {
-      "id": "combo-3",
-      "name": "Candy + Juice",
-      "priceEUR": 4.9,
-      "stock": 7,
-      "image": "https://picsum.photos/seed/candyjuice/200/200"
-    },
-    {
-      "id": "combo-4",
-      "name": "Chocolate + Coffee",
-      "priceEUR": 5.8,
-      "stock": 6,
-      "image": "https://picsum.photos/seed/chococoffee/200/200"
-    },
-    {
-      "id": "combo-5",
-      "name": "Sandwich + Water",
-      "priceEUR": 6.2,
-      "stock": 5,
-      "image": "https://picsum.photos/seed/sandwichwater/200/200"
-    },
-    {
-      "id": "combo-6",
-      "name": "Snack Box",
-      "priceEUR": 7.5,
-      "stock": 4,
-      "image": "https://picsum.photos/seed/snackbox/200/200"
-    },
-    {
-      "id": "combo-7",
-      "name": "Breakfast Combo",
-      "priceEUR": 8.0,
-      "stock": 3,
-      "image": "https://picsum.photos/seed/breakfast/200/200"
-    },
-    {
-      "id": "combo-8",
-      "name": "Lunch Combo",
-      "priceEUR": 9.5,
-      "stock": 2,
-      "image": "https://picsum.photos/seed/lunch/200/200"
-    },
-    {
-      "id": "combo-9",
-      "name": "Dinner Combo",
-      "priceEUR": 10.0,
-      "stock": 1,
-      "image": "https://picsum.photos/seed/dinner/200/200"
-    },
-    {
-      "id": "combo-10",
-      "name": "Kids Combo",
-      "priceEUR": 5.0,
-      "stock": 6,
-      "image": "https://picsum.photos/seed/kidscombo/200/200"
-    },
-    {
-      "id": "combo-11",
-      "name": "Vegan Combo",
-      "priceEUR": 7.0,
-      "stock": 5,
-      "image": "https://picsum.photos/seed/vegancombo/200/200"
-    },
-    {
-      "id": "combo-12",
-      "name": "Gluten-Free Combo",
-      "priceEUR": 7.2,
-      "stock": 4,
-      "image": "https://picsum.photos/seed/glutenfree/200/200"
-    },
-    {
-      "id": "combo-13",
-      "name": "Sweet Tooth Combo",
-      "priceEUR": 6.8,
-      "stock": 3,
-      "image": "https://picsum.photos/seed/sweettooth/200/200"
-    },
-    {
-      "id": "combo-14",
-      "name": "Energy Combo",
-      "priceEUR": 8.5,
-      "stock": 2,
-      "image": "https://picsum.photos/seed/energycombo/200/200"
-    },
-    {
-      "id": "combo-15",
-      "name": "Family Combo",
-      "priceEUR": 12.0,
-      "stock": 1,
-      "image": "https://picsum.photos/seed/familycombo/200/200"
-    },
-    {
-      "id": "coffee-2",
-      "name": "Espresso",
-      "priceEUR": 2.5,
-      "stock": 18,
-      "image": "https://picsum.photos/seed/espresso/200/200"
-    },
-    {
-      "id": "coffee-3",
-      "name": "Cappuccino",
-      "priceEUR": 3.2,
-      "stock": 16,
-      "image": "https://picsum.photos/seed/cappuccino/200/200"
-    },
-    {
-      "id": "coffee-4",
-      "name": "Latte",
-      "priceEUR": 3.4,
-      "stock": 14,
-      "image": "https://picsum.photos/seed/latte/200/200"
     },
     {
       "id": "coffee-5",
@@ -407,95 +281,137 @@
       "image": "https://picsum.photos/seed/icedcoffee/200/200"
     },
     {
-      "id": "coffee-9",
-      "name": "Affogato",
-      "priceEUR": 4.0,
-      "stock": 4,
-      "image": "https://picsum.photos/seed/affogato/200/200"
-    },
-    {
-      "id": "coffee-10",
-      "name": "Irish Coffee",
-      "priceEUR": 4.5,
+      "id": "combo-4",
+      "name": "Lunch Combo",
+      "priceEUR": 9.5,
       "stock": 2,
-      "image": "https://picsum.photos/seed/irishcoffee/200/200"
+      "image": "https://picsum.photos/seed/lunch/200/200"
     },
     {
-      "id": "coffee-11",
-      "name": "Cortado",
-      "priceEUR": 3.1,
-      "stock": 5,
-      "image": "https://picsum.photos/seed/cortado/200/200"
+      "id": "combo-5",
+      "name": "Dinner Combo",
+      "priceEUR": 10.0,
+      "stock": 1,
+      "image": "https://picsum.photos/seed/dinner/200/200"
     },
     {
-      "id": "coffee-12",
-      "name": "Doppio",
-      "priceEUR": 3.8,
-      "stock": 3,
-      "image": "https://picsum.photos/seed/doppio/200/200"
-    },
-    {
-      "id": "coffee-13",
-      "name": "Ristretto",
-      "priceEUR": 3.0,
-      "stock": 7,
-      "image": "https://picsum.photos/seed/ristretto/200/200"
-    },
-    {
-      "id": "coffee-14",
-      "name": "Vienna Coffee",
-      "priceEUR": 4.2,
+      "id": "combo-6",
+      "name": "Kids Combo",
+      "priceEUR": 5.0,
       "stock": 6,
-      "image": "https://picsum.photos/seed/vienna/200/200"
+      "image": "https://picsum.photos/seed/kidscombo/200/200"
     },
     {
-      "id": "coffee-15",
-      "name": "Turkish Coffee",
-      "priceEUR": 4.0,
-      "stock": 8,
-      "image": "https://picsum.photos/seed/turkish/200/200"
+      "id": "combo-7",
+      "name": "Vegan Combo",
+      "priceEUR": 7.0,
+      "stock": 5,
+      "image": "https://picsum.photos/seed/vegancombo/200/200"
     },
     {
-      "id": "snack-21",
-      "name": "Pretzel Sticks",
-      "priceEUR": 1.9,
-      "stock": 10,
-      "image": "https://picsum.photos/seed/pretzel/200/200"
+      "id": "combo-8",
+      "name": "Sweet Tooth Combo",
+      "priceEUR": 6.8,
+      "stock": 3,
+      "image": "https://picsum.photos/seed/sweettooth/200/200"
     },
     {
-      "id": "snack-22",
-      "name": "Rice Cakes",
-      "priceEUR": 1.7,
-      "stock": 12,
-      "image": "https://picsum.photos/seed/ricecake/200/200"
+      "id": "combo-9",
+      "name": "Energy Combo",
+      "priceEUR": 8.5,
+      "stock": 2,
+      "image": "https://picsum.photos/seed/energycombo/200/200"
     },
     {
-      "id": "snack-23",
+      "id": "snack-19",
+      "name": "Ruffles Original",
+      "priceEUR": 2.5,
+      "stock": 6,
+      "image": "https://picsum.photos/seed/ruffles/200/200"
+    },
+    {
+      "id": "snack-20",
       "name": "Granola Bar",
       "priceEUR": 2.0,
       "stock": 14,
       "image": "https://picsum.photos/seed/granola/200/200"
     },
     {
-      "id": "snack-24",
+      "id": "snack-21",
       "name": "Trail Mix",
       "priceEUR": 2.8,
       "stock": 16,
       "image": "https://picsum.photos/seed/trailmix/200/200"
     },
     {
-      "id": "snack-25",
+      "id": "snack-22",
       "name": "Fruit Snacks",
       "priceEUR": 2.1,
       "stock": 18,
       "image": "https://picsum.photos/seed/fruitsnack/200/200"
     },
     {
-      "id": "snack-26",
-      "name": "Peanut Butter Crackers",
+      "id": "drink-12",
+      "name": "Appletiser 330ml",
+      "priceEUR": 2.7,
+      "stock": 11,
+      "image": "https://picsum.photos/seed/appletiser/200/200"
+    },
+    {
+      "id": "drink-13",
+      "name": "Tonic Water 200ml",
+      "priceEUR": 2.2,
+      "stock": 9,
+      "image": "https://picsum.photos/seed/tonic/200/200"
+    },
+    {
+      "id": "coffee-9",
+      "name": "Cortado",
+      "priceEUR": 3.1,
+      "stock": 5,
+      "image": "https://picsum.photos/seed/cortado/200/200"
+    },
+    {
+      "id": "coffee-10",
+      "name": "Ristretto",
+      "priceEUR": 3.0,
+      "stock": 7,
+      "image": "https://picsum.photos/seed/ristretto/200/200"
+    },
+    {
+      "id": "snack-23",
+      "name": "Pretzel Sticks",
+      "priceEUR": 1.9,
+      "stock": 10,
+      "image": "https://picsum.photos/seed/pretzel/200/200"
+    },
+    {
+      "id": "snack-24",
+      "name": "Rice Cakes",
+      "priceEUR": 1.7,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/ricecake/200/200"
+    },
+    {
+      "id": "drink-14",
+      "name": "Ginger Ale 200ml",
       "priceEUR": 2.3,
-      "stock": 20,
-      "image": "https://picsum.photos/seed/pbcrackers/200/200"
+      "stock": 8,
+      "image": "https://picsum.photos/seed/gingerale/200/200"
+    },
+    {
+      "id": "coffee-11",
+      "name": "Affogato",
+      "priceEUR": 4.0,
+      "stock": 4,
+      "image": "https://picsum.photos/seed/affogato/200/200"
+    },
+    {
+      "id": "combo-10",
+      "name": "Family Combo",
+      "priceEUR": 12.0,
+      "stock": 1,
+      "image": "https://picsum.photos/seed/familycombo/200/200"
     }
   ]
 }
