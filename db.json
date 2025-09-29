@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": "snack-1",
+      "name": "Pringles Original",
+      "priceEUR": 3.5,
+      "stock": 15,
+      "image": "https://picsum.photos/seed/pringles/200/200"
+    },
+    {
+      "id": "snack-2",
+      "name": "KitKat Bar",
+      "priceEUR": 2.2,
+      "stock": 24,
+      "image": "https://picsum.photos/seed/kitkat/200/200"
+    },
+    {
+      "id": "drink-1",
+      "name": "Coca-Cola 330ml",
+      "priceEUR": 2.8,
+      "stock": 30,
+      "image": "https://picsum.photos/seed/coke/200/200"
+    },
+    {
+      "id": "drink-2",
+      "name": "Still Water 500ml",
+      "priceEUR": 1.5,
+      "stock": 40,
+      "image": "https://picsum.photos/seed/water/200/200"
+    },
+    {
+      "id": "combo-1",
+      "name": "Sandwich + Drink",
+      "priceEUR": 6.9,
+      "stock": 10,
+      "image": "https://picsum.photos/seed/combo/200/200"
+    },
+    {
+      "id": "coffee-1",
+      "name": "Americano",
+      "priceEUR": 3.0,
+      "stock": 20,
+      "image": "https://picsum.photos/seed/coffee/200/200"
+    }
+  ]
+}
