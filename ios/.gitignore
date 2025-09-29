@@ -28,7 +28,3 @@ project.xcworkspace
 
 # CocoaPods
 /Pods/
-
-# Native build folders
-ios/
-android/
