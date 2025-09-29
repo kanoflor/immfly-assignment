@@ -1,12 +1,10 @@
-import { Button, Text } from "@react-navigation/elements";
+import { Text } from "@react-navigation/elements";
 import { StyleSheet, View } from "react-native";
 
-export function Home() {
+export function Cart() {
   return (
     <View style={styles.container}>
-      <Text>Screen 1</Text>
-      <Text>Open up 'src/App.tsx' to start working on your app!</Text>
-      <Button screen="Cart">Go to Screen 2</Button>
+      <Text>Screen 2</Text>
     </View>
   );
 }
@@ -16,6 +14,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    gap: 10,
+  },
+  row: {
+    flexDirection: "row",
     gap: 10,
   },
 });
