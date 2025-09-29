@@ -1,33 +1,16 @@
 import { Button, Text } from "@react-navigation/elements";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
-
-// https://my-json-server.typicode.com/kanoflor/immfly-assignment
-
-type Product = {
-  id: string;
-  name: string;
-  priceEUR: number;
-  stock: number;
-  image: string;
-};
-
-const useProducts = (): Product[] => {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    fetch(
-      "https://my-json-server.typicode.com/kanoflor/immfly-assignment/products"
-    )
-      .then((response) => response.json())
-      .then((data) => setProducts(data));
-  }, []);
-
-  return products;
-};
+import { useProductStore } from "../../store/productStore";
 
 export function Home() {
-  const products = useProducts();
+  const products = useProductStore((state) => state.products);
+  const fetchProducts = useProductStore((state) => state.fetchProducts);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Screen 1</Text>
