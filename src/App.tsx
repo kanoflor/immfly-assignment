@@ -1,37 +1,43 @@
-import { Assets as NavigationAssets } from '@react-navigation/elements';
-import { DarkTheme, DefaultTheme } from '@react-navigation/native';
-import { Asset } from 'expo-asset';
-import { createURL } from 'expo-linking';
-import * as SplashScreen from 'expo-splash-screen';
-import * as React from 'react';
-import { useColorScheme } from 'react-native';
-import { Navigation } from './navigation';
+import { Assets as NavigationAssets } from "@react-navigation/elements";
+import { DarkTheme, DefaultTheme } from "@react-navigation/native";
+import { defaultConfig } from "@tamagui/config/v4";
+import { Asset } from "expo-asset";
+import { createURL } from "expo-linking";
+import * as SplashScreen from "expo-splash-screen";
+import * as React from "react";
+import { useColorScheme } from "react-native";
+import { createTamagui, TamaguiProvider } from "tamagui";
+import { Navigation } from "./navigation";
 
 Asset.loadAsync([
   ...NavigationAssets,
-  require('./assets/newspaper.png'),
-  require('./assets/bell.png'),
+  require("./assets/newspaper.png"),
+  require("./assets/bell.png"),
 ]);
 
 SplashScreen.preventAutoHideAsync();
 
-const prefix = createURL('/');
+const prefix = createURL("/");
+
+const config = createTamagui(defaultConfig);
 
 export function App() {
   const colorScheme = useColorScheme();
 
-  const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme
+  const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
 
   return (
-    <Navigation
-      theme={theme}
-      linking={{
-        enabled: 'auto',
-        prefixes: [prefix],
-      }}
-      onReady={() => {
-        SplashScreen.hideAsync();
-      }}
-    />
+    <TamaguiProvider config={config}>
+      <Navigation
+        theme={theme}
+        linking={{
+          enabled: "auto",
+          prefixes: [prefix],
+        }}
+        onReady={() => {
+          SplashScreen.hideAsync();
+        }}
+      />
+    </TamaguiProvider>
   );
 }
