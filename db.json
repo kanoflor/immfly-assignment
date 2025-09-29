@@ -36,6 +36,41 @@
       "image": "https://picsum.photos/seed/snickers/200/200"
     },
     {
+      "id": "snack-6",
+      "name": "Twix Bar",
+      "priceEUR": 2.4,
+      "stock": 7,
+      "image": "https://picsum.photos/seed/twix/200/200"
+    },
+    {
+      "id": "snack-7",
+      "name": "M&M's Peanut",
+      "priceEUR": 2.6,
+      "stock": 9,
+      "image": "https://picsum.photos/seed/mms/200/200"
+    },
+    {
+      "id": "snack-8",
+      "name": "Cheetos Crunchy",
+      "priceEUR": 2.7,
+      "stock": 13,
+      "image": "https://picsum.photos/seed/cheetos/200/200"
+    },
+    {
+      "id": "snack-9",
+      "name": "Lay's Classic",
+      "priceEUR": 2.0,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/lays/200/200"
+    },
+    {
+      "id": "snack-10",
+      "name": "Popcorn Salted",
+      "priceEUR": 1.8,
+      "stock": 18,
+      "image": "https://picsum.photos/seed/popcorn/200/200"
+    },
+    {
       "id": "drink-1",
       "name": "Coca-Cola 330ml",
       "priceEUR": 2.8,
@@ -62,6 +97,34 @@
       "priceEUR": 3.0,
       "stock": 15,
       "image": "https://picsum.photos/seed/redbull/200/200"
+    },
+    {
+      "id": "drink-5",
+      "name": "Sprite 330ml",
+      "priceEUR": 2.6,
+      "stock": 22,
+      "image": "https://picsum.photos/seed/sprite/200/200"
+    },
+    {
+      "id": "drink-6",
+      "name": "Fanta Orange 330ml",
+      "priceEUR": 2.5,
+      "stock": 20,
+      "image": "https://picsum.photos/seed/fanta/200/200"
+    },
+    {
+      "id": "drink-7",
+      "name": "Monster Energy 500ml",
+      "priceEUR": 3.2,
+      "stock": 10,
+      "image": "https://picsum.photos/seed/monster/200/200"
+    },
+    {
+      "id": "drink-8",
+      "name": "Evian Water 500ml",
+      "priceEUR": 2.0,
+      "stock": 16,
+      "image": "https://picsum.photos/seed/evian/200/200"
     },
     {
       "id": "coffee-1",
@@ -92,6 +155,20 @@
       "image": "https://picsum.photos/seed/latte/200/200"
     },
     {
+      "id": "coffee-5",
+      "name": "Mocha",
+      "priceEUR": 3.6,
+      "stock": 12,
+      "image": "https://picsum.photos/seed/mocha/200/200"
+    },
+    {
+      "id": "coffee-6",
+      "name": "Flat White",
+      "priceEUR": 3.5,
+      "stock": 8,
+      "image": "https://picsum.photos/seed/flatwhite/200/200"
+    },
+    {
       "id": "combo-1",
       "name": "Sandwich + Drink",
       "priceEUR": 6.9,
@@ -113,174 +190,6 @@
       "image": "https://picsum.photos/seed/breakfast/200/200"
     },
     {
-      "id": "snack-6",
-      "name": "Twix Bar",
-      "priceEUR": 2.4,
-      "stock": 7,
-      "image": "https://picsum.photos/seed/twix/200/200"
-    },
-    {
-      "id": "snack-7",
-      "name": "M&M's Peanut",
-      "priceEUR": 2.6,
-      "stock": 9,
-      "image": "https://picsum.photos/seed/mms/200/200"
-    },
-    {
-      "id": "snack-8",
-      "name": "Milky Way",
-      "priceEUR": 2.2,
-      "stock": 11,
-      "image": "https://picsum.photos/seed/milkyway/200/200"
-    },
-    {
-      "id": "snack-9",
-      "name": "Bounty Bar",
-      "priceEUR": 2.3,
-      "stock": 10,
-      "image": "https://picsum.photos/seed/bounty/200/200"
-    },
-    {
-      "id": "snack-10",
-      "name": "Cheetos Crunchy",
-      "priceEUR": 2.7,
-      "stock": 13,
-      "image": "https://picsum.photos/seed/cheetos/200/200"
-    },
-    {
-      "id": "snack-11",
-      "name": "Lay's Classic",
-      "priceEUR": 2.0,
-      "stock": 12,
-      "image": "https://picsum.photos/seed/lays/200/200"
-    },
-    {
-      "id": "snack-12",
-      "name": "Popcorn Salted",
-      "priceEUR": 1.8,
-      "stock": 18,
-      "image": "https://picsum.photos/seed/popcorn/200/200"
-    },
-    {
-      "id": "snack-13",
-      "name": "Haribo Goldbears",
-      "priceEUR": 2.0,
-      "stock": 16,
-      "image": "https://picsum.photos/seed/haribo/200/200"
-    },
-    {
-      "id": "snack-14",
-      "name": "Skittles",
-      "priceEUR": 2.1,
-      "stock": 17,
-      "image": "https://picsum.photos/seed/skittles/200/200"
-    },
-    {
-      "id": "snack-15",
-      "name": "Mars Bar",
-      "priceEUR": 2.2,
-      "stock": 19,
-      "image": "https://picsum.photos/seed/mars/200/200"
-    },
-    {
-      "id": "snack-16",
-      "name": "Kinder Bueno",
-      "priceEUR": 2.4,
-      "stock": 8,
-      "image": "https://picsum.photos/seed/kinder/200/200"
-    },
-    {
-      "id": "snack-17",
-      "name": "Toblerone Mini",
-      "priceEUR": 2.7,
-      "stock": 7,
-      "image": "https://picsum.photos/seed/toblerone/200/200"
-    },
-    {
-      "id": "snack-18",
-      "name": "Reese's Cups",
-      "priceEUR": 2.9,
-      "stock": 6,
-      "image": "https://picsum.photos/seed/reeses/200/200"
-    },
-    {
-      "id": "drink-5",
-      "name": "Sprite 330ml",
-      "priceEUR": 2.6,
-      "stock": 22,
-      "image": "https://picsum.photos/seed/sprite/200/200"
-    },
-    {
-      "id": "drink-6",
-      "name": "Fanta Orange 330ml",
-      "priceEUR": 2.5,
-      "stock": 20,
-      "image": "https://picsum.photos/seed/fanta/200/200"
-    },
-    {
-      "id": "drink-7",
-      "name": "Lipton Ice Tea 330ml",
-      "priceEUR": 2.4,
-      "stock": 15,
-      "image": "https://picsum.photos/seed/lipton/200/200"
-    },
-    {
-      "id": "drink-8",
-      "name": "San Pellegrino 500ml",
-      "priceEUR": 2.9,
-      "stock": 12,
-      "image": "https://picsum.photos/seed/pellegrino/200/200"
-    },
-    {
-      "id": "drink-9",
-      "name": "Monster Energy 500ml",
-      "priceEUR": 3.2,
-      "stock": 10,
-      "image": "https://picsum.photos/seed/monster/200/200"
-    },
-    {
-      "id": "drink-10",
-      "name": "Evian Water 500ml",
-      "priceEUR": 2.0,
-      "stock": 16,
-      "image": "https://picsum.photos/seed/evian/200/200"
-    },
-    {
-      "id": "drink-11",
-      "name": "Vitamin Water 500ml",
-      "priceEUR": 2.8,
-      "stock": 13,
-      "image": "https://picsum.photos/seed/vitaminwater/200/200"
-    },
-    {
-      "id": "coffee-5",
-      "name": "Mocha",
-      "priceEUR": 3.6,
-      "stock": 12,
-      "image": "https://picsum.photos/seed/mocha/200/200"
-    },
-    {
-      "id": "coffee-6",
-      "name": "Macchiato",
-      "priceEUR": 3.3,
-      "stock": 10,
-      "image": "https://picsum.photos/seed/macchiato/200/200"
-    },
-    {
-      "id": "coffee-7",
-      "name": "Flat White",
-      "priceEUR": 3.5,
-      "stock": 8,
-      "image": "https://picsum.photos/seed/flatwhite/200/200"
-    },
-    {
-      "id": "coffee-8",
-      "name": "Iced Coffee",
-      "priceEUR": 3.7,
-      "stock": 6,
-      "image": "https://picsum.photos/seed/icedcoffee/200/200"
-    },
-    {
       "id": "combo-4",
       "name": "Lunch Combo",
       "priceEUR": 9.5,
@@ -289,125 +198,13 @@
     },
     {
       "id": "combo-5",
-      "name": "Dinner Combo",
-      "priceEUR": 10.0,
-      "stock": 1,
-      "image": "https://picsum.photos/seed/dinner/200/200"
-    },
-    {
-      "id": "combo-6",
       "name": "Kids Combo",
       "priceEUR": 5.0,
       "stock": 6,
       "image": "https://picsum.photos/seed/kidscombo/200/200"
     },
     {
-      "id": "combo-7",
-      "name": "Vegan Combo",
-      "priceEUR": 7.0,
-      "stock": 5,
-      "image": "https://picsum.photos/seed/vegancombo/200/200"
-    },
-    {
-      "id": "combo-8",
-      "name": "Sweet Tooth Combo",
-      "priceEUR": 6.8,
-      "stock": 3,
-      "image": "https://picsum.photos/seed/sweettooth/200/200"
-    },
-    {
-      "id": "combo-9",
-      "name": "Energy Combo",
-      "priceEUR": 8.5,
-      "stock": 2,
-      "image": "https://picsum.photos/seed/energycombo/200/200"
-    },
-    {
-      "id": "snack-19",
-      "name": "Ruffles Original",
-      "priceEUR": 2.5,
-      "stock": 6,
-      "image": "https://picsum.photos/seed/ruffles/200/200"
-    },
-    {
-      "id": "snack-20",
-      "name": "Granola Bar",
-      "priceEUR": 2.0,
-      "stock": 14,
-      "image": "https://picsum.photos/seed/granola/200/200"
-    },
-    {
-      "id": "snack-21",
-      "name": "Trail Mix",
-      "priceEUR": 2.8,
-      "stock": 16,
-      "image": "https://picsum.photos/seed/trailmix/200/200"
-    },
-    {
-      "id": "snack-22",
-      "name": "Fruit Snacks",
-      "priceEUR": 2.1,
-      "stock": 18,
-      "image": "https://picsum.photos/seed/fruitsnack/200/200"
-    },
-    {
-      "id": "drink-12",
-      "name": "Appletiser 330ml",
-      "priceEUR": 2.7,
-      "stock": 11,
-      "image": "https://picsum.photos/seed/appletiser/200/200"
-    },
-    {
-      "id": "drink-13",
-      "name": "Tonic Water 200ml",
-      "priceEUR": 2.2,
-      "stock": 9,
-      "image": "https://picsum.photos/seed/tonic/200/200"
-    },
-    {
-      "id": "coffee-9",
-      "name": "Cortado",
-      "priceEUR": 3.1,
-      "stock": 5,
-      "image": "https://picsum.photos/seed/cortado/200/200"
-    },
-    {
-      "id": "coffee-10",
-      "name": "Ristretto",
-      "priceEUR": 3.0,
-      "stock": 7,
-      "image": "https://picsum.photos/seed/ristretto/200/200"
-    },
-    {
-      "id": "snack-23",
-      "name": "Pretzel Sticks",
-      "priceEUR": 1.9,
-      "stock": 10,
-      "image": "https://picsum.photos/seed/pretzel/200/200"
-    },
-    {
-      "id": "snack-24",
-      "name": "Rice Cakes",
-      "priceEUR": 1.7,
-      "stock": 12,
-      "image": "https://picsum.photos/seed/ricecake/200/200"
-    },
-    {
-      "id": "drink-14",
-      "name": "Ginger Ale 200ml",
-      "priceEUR": 2.3,
-      "stock": 8,
-      "image": "https://picsum.photos/seed/gingerale/200/200"
-    },
-    {
-      "id": "coffee-11",
-      "name": "Affogato",
-      "priceEUR": 4.0,
-      "stock": 4,
-      "image": "https://picsum.photos/seed/affogato/200/200"
-    },
-    {
-      "id": "combo-10",
+      "id": "combo-6",
       "name": "Family Combo",
       "priceEUR": 12.0,
       "stock": 1,
