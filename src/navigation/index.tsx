@@ -4,8 +4,8 @@ import {
   StaticParamList,
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Cart } from "./screens/Cart";
-import { Home } from "./screens/Home";
+import { Cart } from "../features/cart/Cart";
+import { Home } from "../features/home/Home";
 import { NotFound } from "./screens/NotFound";
 
 const RootStack = createNativeStackNavigator({

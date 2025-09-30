@@ -7,6 +7,7 @@ import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
 import { useColorScheme } from "react-native";
 import { createTamagui, TamaguiProvider } from "tamagui";
+import { BottomSheetProvider } from "./components/BottomSheet";
 import { Navigation } from "./navigation";
 
 Asset.loadAsync([
@@ -28,16 +29,18 @@ export function App() {
 
   return (
     <TamaguiProvider config={config}>
-      <Navigation
-        theme={theme}
-        linking={{
-          enabled: "auto",
-          prefixes: [prefix],
-        }}
-        onReady={() => {
-          SplashScreen.hideAsync();
-        }}
-      />
+      <BottomSheetProvider>
+        <Navigation
+          theme={theme}
+          linking={{
+            enabled: "auto",
+            prefixes: [prefix],
+          }}
+          onReady={() => {
+            SplashScreen.hideAsync();
+          }}
+        />
+      </BottomSheetProvider>
     </TamaguiProvider>
   );
 }

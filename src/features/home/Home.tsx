@@ -1,7 +1,10 @@
-import { Button } from "@react-navigation/elements";
 import { useEffect } from "react";
 import { Dimensions, FlatList, StyleSheet, View } from "react-native";
 import { H4, XStack } from "tamagui";
+import {
+  BottomSheet,
+  useBottomSheetHeight,
+} from "../../components/BottomSheet";
 import { ProductCard } from "../../components/ProductCard";
 import { useProductStore } from "../../store/productStore";
 
@@ -16,6 +19,7 @@ const ITEM_WIDTH =
 export function Home() {
   const products = useProductStore((state) => state.products);
   const fetchProducts = useProductStore((state) => state.fetchProducts);
+  const { height: bottomSheetHeight } = useBottomSheetHeight();
 
   useEffect(() => {
     fetchProducts();
@@ -42,12 +46,17 @@ export function Home() {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         numColumns={COLUMNS}
-        contentContainerStyle={styles.list}
+        contentContainerStyle={[
+          styles.list,
+          { paddingBottom: bottomSheetHeight },
+        ]}
         columnWrapperStyle={styles.row}
         ItemSeparatorComponent={() => <XStack height={ITEM_SPACING} />}
         showsVerticalScrollIndicator={false}
       />
-      <Button screen="Cart">Go to Screen 2</Button>
+      <BottomSheet>
+        <XStack height={300} />
+      </BottomSheet>
     </View>
   );
 }
@@ -66,7 +75,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   list: {
-    paddingBottom: 20,
+    paddingBottom: 0, // To dynamically set paddingBottom
   },
   row: {
     justifyContent: "space-between",
