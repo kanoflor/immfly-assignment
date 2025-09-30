@@ -1,6 +1,7 @@
 import { Assets as NavigationAssets } from "@react-navigation/elements";
 import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { defaultConfig } from "@tamagui/config/v4";
+import { PortalProvider } from "@tamagui/portal";
 import { Asset } from "expo-asset";
 import { createURL } from "expo-linking";
 import * as SplashScreen from "expo-splash-screen";
@@ -29,18 +30,20 @@ export function App() {
 
   return (
     <TamaguiProvider config={config}>
-      <BottomSheetProvider>
-        <Navigation
-          theme={theme}
-          linking={{
-            enabled: "auto",
-            prefixes: [prefix],
-          }}
-          onReady={() => {
-            SplashScreen.hideAsync();
-          }}
-        />
-      </BottomSheetProvider>
+      <PortalProvider shouldAddRootHost>
+        <BottomSheetProvider>
+          <Navigation
+            theme={theme}
+            linking={{
+              enabled: "auto",
+              prefixes: [prefix],
+            }}
+            onReady={() => {
+              SplashScreen.hideAsync();
+            }}
+          />
+        </BottomSheetProvider>
+      </PortalProvider>
     </TamaguiProvider>
   );
 }
