@@ -27,9 +27,6 @@ export function ProductCard({
       size="$4"
       borderRadius={10}
       elevate
-      bordered
-      width={170}
-      height={170}
       pressStyle={{ scale: 0.95 }}
       onPress={onPress}
       {...props}
@@ -81,6 +78,4 @@ export function ProductCard({
     </Card>
   );
 }
-// priceのラベル黒塗り
-// プロダクト名の行間隔
-// 背景イメージの変更
+// TODO: priceのラベル黒塗り
