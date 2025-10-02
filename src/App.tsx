@@ -1,4 +1,3 @@
-import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { Assets as NavigationAssets } from "@react-navigation/elements";
 import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { defaultConfig } from "@tamagui/config/v4";
@@ -32,20 +31,18 @@ export function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <TamaguiProvider config={config}>
-        <BottomSheetModalProvider>
-          <BottomSheetProvider>
-            <Navigation
-              theme={theme}
-              linking={{
-                enabled: "auto",
-                prefixes: [prefix],
-              }}
-              onReady={() => {
-                SplashScreen.hideAsync();
-              }}
-            />
-          </BottomSheetProvider>
-        </BottomSheetModalProvider>
+        <BottomSheetProvider>
+          <Navigation
+            theme={theme}
+            linking={{
+              enabled: "auto",
+              prefixes: [prefix],
+            }}
+            onReady={() => {
+              SplashScreen.hideAsync();
+            }}
+          />
+        </BottomSheetProvider>
       </TamaguiProvider>
     </GestureHandlerRootView>
   );
