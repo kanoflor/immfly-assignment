@@ -57,6 +57,7 @@ export function QtySelectorModal({
           paddingVertical={20}
           paddingHorizontal={40}
           borderRadius={10}
+          justifyContent="center"
           alignItems="center"
           minHeight={300}
           minWidth={300}
@@ -82,7 +83,7 @@ export function QtySelectorModal({
             </SizableText>
           </Button>
           <Button onPress={onClose} chromeless>
-            Cerrar
+            Cancelar
           </Button>
         </YStack>
       </YStack>

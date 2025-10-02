@@ -16,6 +16,11 @@ import { QtySelectorModal } from "../../components/QtySelectorModal";
 import { useCartStore } from "../../store/cartStore";
 import { Product, useProductStore } from "../../store/productStore";
 import { ActionButtonGroup } from "./ActionButtonGroup";
+import {
+  pickerOptions,
+  ProductTypePicker,
+  ProductTypeValue,
+} from "./ProductTypePicker";
 
 const { width: screenWidth } = Dimensions.get("window");
 const HORIZONTAL_PADDING = 16;
@@ -27,7 +32,12 @@ const ITEM_WIDTH =
 
 export function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isQtyModalVisible, setIsQtyModalVisible] = useState(false);
+
+  const [selectedProductType, setSelectedProductType] =
+    useState<ProductTypeValue>(pickerOptions[0].value);
+  const [isProductTypePickerVisible, setIsProductTypePickerVisible] =
+    useState(false);
 
   const products = useProductStore((state) => state.products);
   const fetchProducts = useProductStore((state) => state.fetchProducts);
@@ -43,7 +53,7 @@ export function Home() {
 
   const handlePresentModalPress = (product: Product) => {
     setSelectedProduct(product);
-    setIsModalVisible(true);
+    setIsQtyModalVisible(true);
   };
 
   const renderItem = ({ item, index }: { item: Product; index: number }) => {
@@ -95,17 +105,84 @@ export function Home() {
       )}
       <BottomSheet>
         <YStack justifyContent="center" alignItems="center">
-          <ActionButtonGroup />
+          <ActionButtonGroup
+            onSecondButtonPress={() => setIsProductTypePickerVisible(true)}
+            selectedProductType={selectedProductType}
+          />
         </YStack>
       </BottomSheet>
 
       {selectedProduct ? (
         <QtySelectorModal
           selectedProduct={selectedProduct}
-          visible={isModalVisible}
-          onClose={() => setIsModalVisible(false)}
+          visible={isQtyModalVisible}
+          onClose={() => setIsQtyModalVisible(false)}
         />
       ) : null}
+
+      <ProductTypePicker
+        isVisible={isProductTypePickerVisible}
+        selectedProductType={selectedProductType}
+        setSelectedProductType={setSelectedProductType}
+        onClose={() => setIsProductTypePickerVisible(false)}
+      />
+
+      {/* {isPickerVisible ? (
+        <View
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: [{ translateX: -100 }, { translateY: -25 }],
+            width: 250,
+            flex: 1,
+            backgroundColor: "white",
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <Picker
+            selectedValue={selectedLanguage}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedLanguage(itemValue)
+            }
+            style={{
+              // position: "absolute",
+              // top: "50%",
+              // left: "50%",
+              // transform: [{ translateX: -100 }, { translateY: -25 }],
+              // width: 250,
+              // flex: 1,
+              // backgroundColor: "white",
+              width: "50%",
+            }}
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="Python" value="python" />
+          </Picker>
+          <Picker
+            selectedValue={selectedLanguage}
+            onValueChange={(itemValue, itemIndex) =>
+              setSelectedLanguage(itemValue)
+            }
+            style={{
+              // position: "absolute",
+              // top: "50%",
+              // left: "50%",
+              // transform: [{ translateX: -100 }, { translateY: -25 }],
+              // width: 250,
+              // flex: 1,
+              // backgroundColor: "white",
+              width: "50%",
+            }}
+          >
+            <Picker.Item label="Java" value="java" />
+            <Picker.Item label="JavaScript" value="js" />
+            <Picker.Item label="Python" value="python" />
+          </Picker>
+        </View>
+      ) : null} */}
     </YStack>
   );
 }

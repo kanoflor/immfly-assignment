@@ -18,6 +18,7 @@ import { QtySelectorModal } from "../../components/QtySelectorModal";
 import { useCartStore } from "../../store/cartStore";
 import { Product, useProductStore } from "../../store/productStore";
 import { CartActionGroup } from "./CartActionGroup";
+import { SeatPicker } from "./SeatPicker";
 import { formatCartItems, FormattedCartItem } from "./util";
 
 function CartHeader() {
@@ -105,6 +106,9 @@ export function Cart() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const [selectedSeat, setSelectedSeat] = useState<string[]>(["A", "1"]);
+  const [isSeatPickerVisible, setIsSeatPickerVisible] = useState(false);
+
   const cartItems = useCartStore((state) => state.cartItems);
   const byId = useProductStore((state) => state.byId);
 
@@ -131,7 +135,10 @@ export function Cart() {
         </YStack>
 
         <BottomSheet>
-          <CartActionGroup />
+          <CartActionGroup
+            selectedSeat={selectedSeat}
+            setIsSeatPickerVisible={setIsSeatPickerVisible}
+          />
         </BottomSheet>
       </YStack>
 
@@ -142,6 +149,13 @@ export function Cart() {
           onClose={() => setIsModalVisible(false)}
         />
       ) : null}
+
+      <SeatPicker
+        isVisible={isSeatPickerVisible}
+        onClose={() => setIsSeatPickerVisible(false)}
+        selectedSeat={selectedSeat}
+        setSelectedSeat={setSelectedSeat}
+      />
     </>
   );
 }

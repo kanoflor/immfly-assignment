@@ -1,29 +1,30 @@
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import {
-  Button,
-  Paragraph,
-  SizableText,
-  XGroup,
-  XStack,
-  YStack,
-} from "tamagui";
+import { Button, Paragraph, SizableText, XStack, YStack } from "tamagui";
 import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
 import { useProductStore } from "../../store/productStore";
 
-function SeatButton() {
+type CartActionGroupProps = {
+  selectedSeat: string[];
+  setIsSeatPickerVisible: (visible: boolean) => void;
+};
+
+function SeatButton({
+  selectedSeat,
+  setIsSeatPickerVisible,
+}: CartActionGroupProps) {
   return (
-    <XGroup>
-      <Button>
-        <Paragraph size="$8" fontWeight="700">
-          A
-        </Paragraph>
-      </Button>
-      <Button>
-        <Paragraph size="$8" fontWeight="700">
-          1
-        </Paragraph>
-      </Button>
-    </XGroup>
+    <Button
+      justifyContent="space-between"
+      alignItems="center"
+      onPress={() => setIsSeatPickerVisible(true)}
+    >
+      <Paragraph size="$8" fontWeight="700">
+        {selectedSeat[0]}
+      </Paragraph>
+      <Paragraph size="$8" fontWeight="700">
+        {selectedSeat[1]}
+      </Paragraph>
+    </Button>
   );
 }
 
@@ -35,7 +36,7 @@ function PaymentButton({ icon, label }: { icon: string; label: string }) {
       backgroundColor="$black5"
       position="relative"
     >
-      {/* Icon is not centered */}
+      {/* TODO: Icon is not centered */}
       <FontAwesome5 name={icon} size={36} color="white" />
 
       <YStack
@@ -53,7 +54,10 @@ function PaymentButton({ icon, label }: { icon: string; label: string }) {
   );
 }
 
-export function CartActionGroup() {
+export function CartActionGroup({
+  selectedSeat,
+  setIsSeatPickerVisible,
+}: CartActionGroupProps) {
   const byId = useProductStore((state) => state.byId);
   const subtotalEUR = useCartStore(createSelectSubtotalEUR(byId));
 
@@ -64,7 +68,10 @@ export function CartActionGroup() {
           <SizableText size="$7" letterSpacing={1.5}>
             ASIENTO
           </SizableText>
-          <SeatButton />
+          <SeatButton
+            selectedSeat={selectedSeat}
+            setIsSeatPickerVisible={setIsSeatPickerVisible}
+          />
         </YStack>
         <YStack alignItems="flex-end" justifyContent="space-between">
           <SizableText size="$7" letterSpacing={1.5}>
