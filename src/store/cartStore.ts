@@ -1,35 +1,147 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
-import { Product } from "./productStore";
+import { createJSONStorage, persist } from "zustand/middleware";
+import { ProductsById } from "./productStore";
 
-type CartStore = {
-  cartItems: Product[];
-  addItemToCart: (product: Product) => void;
-  removeItemFromCart: (product: Product) => void;
-  clearCart: () => void;
-  // reduceStock: (product: Product, quantity: number) => void;
+export type CartItems = Record<string, number>;
+
+type State = {
+  cartItems: CartItems;
+  isProcessingPayment: boolean;
 };
 
-export const useProductStore = create<CartStore>((set, _get, store) => ({
-  cartItems: [],
-  addItemToCart: (product) => {
-    set((state) => ({ cartItems: [...state.cartItems, product] }));
-  },
-  removeItemFromCart: (product) => {
-    set((state) => ({
-      cartItems: state.cartItems.filter((item) => item.id !== product.id),
-    }));
-  },
-  clearCart: () => {
-    set(store.getInitialState());
-  },
-  // reduceStock: (product, quantity) => {
-  //   // TODO: API操作？
-  //   set((state) => ({
-  //     cartItems: state.cartItems.map((item) =>
-  //       item.id === product.id
-  //         ? { ...item, stock: item.stock - quantity }
-  //         : item
-  //     ),
-  //   }));
-  // },
-}));
+type Actions = {
+  /** Add same product one by one */
+  addOne: (productId: string) => void;
+
+  /** Remove one product */
+  removeOne: (productId: string) => void;
+
+  /** Set quantity explicitly */
+  addItemByQty: (productId: string, qty: number) => void;
+
+  /** Remove product from cart */
+  removeItem: (productId: string) => void;
+
+  /** Clear cart */
+  clear: () => void;
+
+  /** Checkout: call `/pay` and if successful, clear the cart (stock deduction is done on the server side) */
+  checkout: (opts: {
+    endpoint: string; // example: http://localhost:3001/pay
+    headers?: Record<string, string>;
+  }) => Promise<{ ok: boolean; paymentId?: string }>;
+};
+
+export type CartStore = State & Actions;
+
+const initial: State = {
+  cartItems: {},
+  isProcessingPayment: false,
+};
+
+export const useCartStore = create<CartStore>()(
+  persist(
+    (set, get) => ({
+      ...initial,
+
+      addOne: (productId) =>
+        set((state) => ({
+          cartItems: {
+            ...state.cartItems,
+            [productId]: (state.cartItems[productId] ?? 0) + 1,
+          },
+        })),
+
+      removeOne: (productId) =>
+        set((state) => {
+          const current = state.cartItems[productId] ?? 0;
+          if (current <= 1) {
+            const { [productId]: _, ...rest } = state.cartItems;
+            return { cartItems: rest };
+            // get().removeItem(productId);
+          }
+          return {
+            cartItems: { ...state.cartItems, [productId]: current - 1 },
+          };
+        }),
+
+      addItemByQty: (productId, qty) =>
+        set((state) => {
+          if (qty <= 0) {
+            const { [productId]: _, ...rest } = state.cartItems;
+            return { cartItems: rest };
+            // get().removeItem(productId);
+          }
+          return {
+            cartItems: { ...state.cartItems, [productId]: Math.floor(qty) },
+          };
+        }),
+
+      removeItem: (productId) =>
+        set((state) => {
+          const { [productId]: _, ...rest } = state.cartItems;
+          return { cartItems: rest };
+        }),
+
+      clear: () => set({ cartItems: {} }),
+
+      checkout: async ({ endpoint, headers }) => {
+        const { cartItems } = get();
+        const items = Object.entries(cartItems).map(([id, qty]) => ({
+          id,
+          qty,
+        }));
+
+        if (items.length === 0) return { ok: true, paymentId: undefined };
+
+        set({ isProcessingPayment: true });
+        try {
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", ...(headers || {}) },
+            body: JSON.stringify({ items }),
+          });
+          const data = await res.json().catch(() => ({}));
+          if (!res.ok) throw new Error("payment_failed");
+
+          // サーバー側で在庫は減算済み（JSON Server 実装想定）
+          // 成功時はカートを空に
+          set({ cartItems: {}, isProcessingPayment: false });
+          return { ok: true, paymentId: String(data?.paymentId ?? "") };
+        } catch {
+          set({ isProcessingPayment: false });
+          return { ok: false };
+        }
+      },
+    }),
+    {
+      name: "cart-store",
+      storage: createJSONStorage(() => AsyncStorage),
+      partialize: (s) => ({ cartItems: s.cartItems }),
+    }
+  )
+);
+
+/* ------------------- selectors ------------------- */
+
+/** Total quantity of items */
+export const selectTotalQty = (s: State) =>
+  Object.values(s.cartItems).reduce((a, b) => a + b, 0);
+
+/** Subtotal (EUR, sum of priceEUR * quantity) */
+export const createSelectSubtotalEUR =
+  (byId: ProductsById) =>
+  (s: State): number =>
+    Object.entries(s.cartItems).reduce((sum, [id, qty]) => {
+      const p = byId[id];
+      return p ? sum + (p.priceEUR ?? 0) * qty : sum;
+    }, 0);
+
+/** For currency display (example: inject exchange rate from outside) */
+export const createSelectSubtotalInCurrency =
+  (byId: ProductsById, rate: number) =>
+  (s: State): number => {
+    const base = createSelectSubtotalEUR(byId)(s);
+    return Math.round(base * rate * 100) / 100;
+  };

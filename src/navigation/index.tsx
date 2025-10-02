@@ -1,4 +1,3 @@
-import { HeaderButton, Text } from "@react-navigation/elements";
 import {
   createStaticNavigation,
   StaticParamList,
@@ -19,13 +18,10 @@ const RootStack = createNativeStackNavigator({
     },
     Cart: {
       screen: Cart,
-      options: ({ navigation }) => ({
+      options: () => ({
         presentation: "modal",
-        headerRight: () => (
-          <HeaderButton onPress={navigation.goBack}>
-            <Text>Close</Text>
-          </HeaderButton>
-        ),
+        title: "Cart",
+        headerShown: false,
       }),
     },
     NotFound: {

@@ -1,12 +1,13 @@
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { Assets as NavigationAssets } from "@react-navigation/elements";
 import { DarkTheme, DefaultTheme } from "@react-navigation/native";
 import { defaultConfig } from "@tamagui/config/v4";
-import { PortalProvider } from "@tamagui/portal";
 import { Asset } from "expo-asset";
 import { createURL } from "expo-linking";
 import * as SplashScreen from "expo-splash-screen";
 import * as React from "react";
 import { useColorScheme } from "react-native";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { createTamagui, TamaguiProvider } from "tamagui";
 import { BottomSheetProvider } from "./components/BottomSheet";
 import { Navigation } from "./navigation";
@@ -29,21 +30,23 @@ export function App() {
   const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
 
   return (
-    <TamaguiProvider config={config}>
-      <PortalProvider shouldAddRootHost>
-        <BottomSheetProvider>
-          <Navigation
-            theme={theme}
-            linking={{
-              enabled: "auto",
-              prefixes: [prefix],
-            }}
-            onReady={() => {
-              SplashScreen.hideAsync();
-            }}
-          />
-        </BottomSheetProvider>
-      </PortalProvider>
-    </TamaguiProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <TamaguiProvider config={config}>
+        <BottomSheetModalProvider>
+          <BottomSheetProvider>
+            <Navigation
+              theme={theme}
+              linking={{
+                enabled: "auto",
+                prefixes: [prefix],
+              }}
+              onReady={() => {
+                SplashScreen.hideAsync();
+              }}
+            />
+          </BottomSheetProvider>
+        </BottomSheetModalProvider>
+      </TamaguiProvider>
+    </GestureHandlerRootView>
   );
 }

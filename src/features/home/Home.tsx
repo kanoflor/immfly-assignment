@@ -1,12 +1,16 @@
-import { useEffect } from "react";
+import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Dimensions, FlatList, StyleSheet, View } from "react-native";
-import { H4, XStack } from "tamagui";
+import { H4, XStack, YStack } from "tamagui";
 import {
   BottomSheet,
   useBottomSheetHeight,
 } from "../../components/BottomSheet";
 import { ProductCard } from "../../components/ProductCard";
-import { useProductStore } from "../../store/productStore";
+import { QuantitySelectorModal } from "../../components/QuantitySelectorModal";
+import { useCartStore } from "../../store/cartStore";
+import { Product, useProductStore } from "../../store/productStore";
+import { ActionButtonGroup } from "./ActionButtonGroup";
 
 const { width: screenWidth } = Dimensions.get("window");
 const HORIZONTAL_PADDING = 16;
@@ -17,31 +21,52 @@ const ITEM_WIDTH =
   COLUMNS;
 
 export function Home() {
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
   const products = useProductStore((state) => state.products);
   const fetchProducts = useProductStore((state) => state.fetchProducts);
+  const cartItems = useCartStore((state) => state.cartItems);
+
   const { height: bottomSheetHeight } = useBottomSheetHeight();
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
-  const renderItem = ({ item, index }: { item: any; index: number }) => {
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const handlePresentModalPress = useCallback((product: Product) => {
+    setSelectedProduct(product);
+    bottomSheetModalRef.current?.present();
+  }, []);
+
+  const renderItem = ({ item, index }: { item: Product; index: number }) => {
     const isRightColumn = (index + 1) % COLUMNS === 0;
+    const selectedQuantity = cartItems[item.id] ?? 0;
     return (
       <View
         style={[styles.itemContainer, !isRightColumn && styles.itemSpacing]}
       >
-        <ProductCard product={item} width={ITEM_WIDTH} height={ITEM_WIDTH} />
+        <ProductCard
+          product={item}
+          selectedQuantity={selectedQuantity}
+          width={ITEM_WIDTH}
+          height={ITEM_WIDTH}
+          onPress={() => handlePresentModalPress(item)}
+        />
       </View>
     );
   };
 
   return (
     // TODO: background color to be grey
-    <View style={styles.container}>
+    <YStack
+      flex={1}
+      paddingVertical={60}
+      paddingHorizontal={HORIZONTAL_PADDING}
+      gap={10}
+    >
       <H4 fontWeight="800">Refrescos</H4>
       <FlatList
-        // TODO: パフォーマンス改善
         data={products}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
@@ -53,29 +78,30 @@ export function Home() {
         columnWrapperStyle={styles.row}
         ItemSeparatorComponent={() => <XStack height={ITEM_SPACING} />}
         showsVerticalScrollIndicator={false}
+        // initialNumToRender={10}
+        // removeClippedSubviews={true}
+        // getItemLayout={getItemLayout}
       />
+
       <BottomSheet>
-        <XStack height={300} />
+        <YStack justifyContent="center" alignItems="center">
+          <ActionButtonGroup />
+        </YStack>
       </BottomSheet>
-    </View>
+
+      {selectedProduct ? (
+        <QuantitySelectorModal
+          ref={bottomSheetModalRef}
+          selectedProduct={selectedProduct}
+        />
+      ) : null}
+    </YStack>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingVertical: 60,
-    paddingHorizontal: HORIZONTAL_PADDING,
-    gap: 10,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    textAlign: "center",
-    marginBottom: 10,
-  },
   list: {
-    paddingBottom: 0, // To dynamically set paddingBottom
+    paddingBottom: 0,
   },
   row: {
     justifyContent: "space-between",

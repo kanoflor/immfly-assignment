@@ -1,7 +1,6 @@
 import {
   Card,
   CardProps,
-  Circle,
   Image,
   SizableText,
   Text,
@@ -9,6 +8,7 @@ import {
   YStack,
 } from "tamagui";
 import { Product } from "../store/productStore";
+import { NumberCircle } from "./NumberCircle";
 
 type ProductCardProps = {
   product: Product;
@@ -22,6 +22,24 @@ export function ProductCard({
   onPress,
   ...props
 }: ProductCardProps) {
+  const PriceTag = () => {
+    return (
+      <YStack
+        justifyContent="flex-end"
+        backgroundColor="black"
+        paddingVertical={4}
+        paddingHorizontal={10}
+        borderRadius={20}
+      >
+        <Text
+          fontSize={14}
+          fontWeight="600"
+          color="white"
+        >{`${product.priceEUR.toFixed(2)} €`}</Text>
+      </YStack>
+    );
+  };
+
   return (
     <Card
       size="$4"
@@ -33,18 +51,9 @@ export function ProductCard({
     >
       <Card.Header position="relative">
         {selectedQuantity > 0 ? (
-          <Circle
-            size={24}
-            backgroundColor="$blue10"
-            position="absolute"
-            top={8}
-            right={8}
-            zIndex={1}
-          >
-            <Text color="white" fontSize={12} fontWeight="bold">
-              {selectedQuantity}
-            </Text>
-          </Circle>
+          <XStack position="absolute" top={8} right={8}>
+            <NumberCircle number={selectedQuantity} backgroundColor="$blue11" />
+          </XStack>
         ) : null}
       </Card.Header>
       <Card.Footer padded>
@@ -58,11 +67,7 @@ export function ProductCard({
               size="$3"
             >{`${product.stock} unidades`}</SizableText>
           </YStack>
-          <YStack justifyContent="flex-end">
-            <Text fontSize={14} fontWeight="bold">{`${product.priceEUR.toFixed(
-              2
-            )} €`}</Text>
-          </YStack>
+          <PriceTag />
         </XStack>
       </Card.Footer>
       <Card.Background borderRadius={10}>
@@ -78,4 +83,3 @@ export function ProductCard({
     </Card>
   );
 }
-// TODO: priceのラベル黒塗り
