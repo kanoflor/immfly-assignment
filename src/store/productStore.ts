@@ -14,6 +14,7 @@ type State = {
   products: Product[];
   byId: Record<string, Product | undefined>;
   lastFetchedAt: number;
+  isFetching: boolean;
 };
 
 type Actions = {
@@ -30,6 +31,7 @@ const initial: State = {
   products: [],
   byId: {},
   lastFetchedAt: 0,
+  isFetching: false,
 };
 
 export const useProductStore = create<ProductStore>((set, get) => ({
@@ -45,15 +47,22 @@ export const useProductStore = create<ProductStore>((set, get) => ({
     set({ byId, products, lastFetchedAt: Date.now() });
   },
   fetchProducts: async () => {
-    // Set 5 minutes cache
-    const ttl = 5 * 60 * 1000;
+    set({ isFetching: true });
+    try {
+      // Set 5 minutes cache
+      const ttl = 5 * 60 * 1000;
 
-    if (Date.now() - (get().lastFetchedAt ?? 0) < ttl) return;
+      if (Date.now() - (get().lastFetchedAt ?? 0) < ttl) return;
 
-    const res = await fetch(
-      "https://my-json-server.typicode.com/kanoflor/immfly-assignment/products"
-    );
-    const data: Product[] = await res.json();
-    get().setProducts(data);
+      const res = await fetch(
+        "https://my-json-server.typicode.com/kanoflor/immfly-assignment/products"
+      );
+      const data: Product[] = await res.json();
+      get().setProducts(data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      set({ isFetching: false });
+    }
   },
 }));

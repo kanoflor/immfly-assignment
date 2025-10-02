@@ -1,6 +1,12 @@
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Dimensions, FlatList, StyleSheet, View } from "react-native";
+import {
+  ActivityIndicator,
+  Dimensions,
+  FlatList,
+  StyleSheet,
+  View,
+} from "react-native";
 import { H4, XStack, YStack } from "tamagui";
 import {
   BottomSheet,
@@ -25,6 +31,8 @@ export function Home() {
 
   const products = useProductStore((state) => state.products);
   const fetchProducts = useProductStore((state) => state.fetchProducts);
+  const isFetching = useProductStore((state) => state.isFetching);
+
   const cartItems = useCartStore((state) => state.cartItems);
 
   const { height: bottomSheetHeight } = useBottomSheetHeight();
@@ -66,23 +74,26 @@ export function Home() {
       gap={10}
     >
       <H4 fontWeight="800">Refrescos</H4>
-      <FlatList
-        data={products}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        numColumns={COLUMNS}
-        contentContainerStyle={[
-          styles.list,
-          { paddingBottom: bottomSheetHeight },
-        ]}
-        columnWrapperStyle={styles.row}
-        ItemSeparatorComponent={() => <XStack height={ITEM_SPACING} />}
-        showsVerticalScrollIndicator={false}
-        // initialNumToRender={10}
-        // removeClippedSubviews={true}
-        // getItemLayout={getItemLayout}
-      />
-
+      {isFetching ? (
+        <ActivityIndicator size="large" color="$blue10" />
+      ) : (
+        <FlatList
+          data={products}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          numColumns={COLUMNS}
+          contentContainerStyle={[
+            styles.list,
+            { paddingBottom: bottomSheetHeight },
+          ]}
+          columnWrapperStyle={styles.row}
+          ItemSeparatorComponent={() => <XStack height={ITEM_SPACING} />}
+          showsVerticalScrollIndicator={false}
+          // initialNumToRender={10}
+          // removeClippedSubviews={true}
+          // getItemLayout={getItemLayout}
+        />
+      )}
       <BottomSheet>
         <YStack justifyContent="center" alignItems="center">
           <ActionButtonGroup />
