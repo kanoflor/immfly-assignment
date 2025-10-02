@@ -1,31 +1,24 @@
-import { BottomSheetModal, BottomSheetView } from "@gorhom/bottom-sheet";
-import { ForwardedRef, forwardRef, useState } from "react";
-import { StyleSheet } from "react-native";
-import { Button, H6, SizableText, XGroup, XStack, YStack } from "tamagui";
+import { useState } from "react";
+import { Modal } from "react-native";
+import { Button, H6, SizableText, XGroup, YStack } from "tamagui";
 import { useCartStore } from "../store/cartStore";
 import { Product } from "../store/productStore";
 
-type QuantitySelectorModalProps = {
+type QtySelectorModalProps = {
   selectedProduct: Product;
+  visible: boolean;
+  onClose: () => void;
 };
 
-export const QuantitySelectorModal = forwardRef<
-  BottomSheetModal,
-  QuantitySelectorModalProps
->(function QuantitySelectorModal(props, ref: ForwardedRef<BottomSheetModal>) {
-  console.log("QuantitySelectorModal");
-  const { selectedProduct } = props;
+export function QtySelectorModal({
+  selectedProduct,
+  visible,
+  onClose,
+}: QtySelectorModalProps) {
   const cartItems = useCartStore((state) => state.cartItems);
   const addItemByQty = useCartStore((state) => state.addItemByQty);
 
   const [qty, setQty] = useState(cartItems[selectedProduct.id] ?? 1);
-
-  const addToCart = () => {
-    addItemByQty(selectedProduct.id, qty);
-    if (ref && typeof ref !== "function") {
-      ref.current?.close();
-    }
-  };
 
   const incrementQty = () => {
     if (qty >= selectedProduct.stock) {
@@ -40,10 +33,34 @@ export const QuantitySelectorModal = forwardRef<
     setQty(qty - 1);
   };
 
+  const addToCart = () => {
+    addItemByQty(selectedProduct.id, qty);
+    onClose();
+  };
+
   return (
-    <BottomSheetModal ref={ref} onDismiss={() => setQty(1)} {...props}>
-      <BottomSheetView style={styles.contentContainer}>
-        <YStack alignItems="center" gap={20}>
+    <Modal
+      animationType="fade"
+      transparent={true}
+      visible={visible}
+      onRequestClose={onClose}
+    >
+      <YStack
+        flex={1}
+        alignItems="center"
+        justifyContent="center"
+        backgroundColor="rgba(0, 0, 0, 0.5)"
+      >
+        <YStack
+          backgroundColor="white"
+          gap={20}
+          paddingVertical={20}
+          paddingHorizontal={40}
+          borderRadius={10}
+          alignItems="center"
+          minHeight={300}
+          minWidth={300}
+        >
           <H6>{selectedProduct.name}</H6>
           <XGroup>
             <Button disabled={qty <= 0} onPress={decrementQty}>
@@ -64,16 +81,11 @@ export const QuantitySelectorModal = forwardRef<
               Añadir al carrito
             </SizableText>
           </Button>
+          <Button onPress={onClose} chromeless>
+            Cerrar
+          </Button>
         </YStack>
-        <XStack height={40} />
-      </BottomSheetView>
-    </BottomSheetModal>
+      </YStack>
+    </Modal>
   );
-});
-
-const styles = StyleSheet.create({
-  contentContainer: {
-    flex: 1,
-    alignItems: "center",
-  },
-});
+}

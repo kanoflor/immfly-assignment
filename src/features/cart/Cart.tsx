@@ -1,7 +1,6 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { useNavigation } from "@react-navigation/native";
-import { useCallback, useRef, useState } from "react";
+import { useState } from "react";
 import { Dimensions, StyleSheet, TouchableOpacity } from "react-native";
 import ReanimatedSwipeable from "react-native-gesture-handler/ReanimatedSwipeable";
 import Animated from "react-native-reanimated";
@@ -15,7 +14,7 @@ import {
   YStack,
 } from "tamagui";
 import { BottomSheet } from "../../components/BottomSheet";
-import { QuantitySelectorModal } from "../../components/QuantitySelectorModal";
+import { QtySelectorModal } from "../../components/QtySelectorModal";
 import { useCartStore } from "../../store/cartStore";
 import { Product, useProductStore } from "../../store/productStore";
 import { CartActionGroup } from "./CartActionGroup";
@@ -104,17 +103,17 @@ function CartListItem({
 
 export function Cart() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const cartItems = useCartStore((state) => state.cartItems);
   const byId = useProductStore((state) => state.byId);
 
   const formattedCartItems = formatCartItems(cartItems, byId);
 
-  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const handlePresentModalPress = useCallback((product: Product) => {
+  const handlePresentModalPress = (product: Product) => {
     setSelectedProduct(product);
-    bottomSheetModalRef.current?.present();
-  }, []);
+    setIsModalVisible(true);
+  };
 
   return (
     <>
@@ -137,9 +136,10 @@ export function Cart() {
       </YStack>
 
       {selectedProduct ? (
-        <QuantitySelectorModal
-          ref={bottomSheetModalRef}
+        <QtySelectorModal
           selectedProduct={selectedProduct}
+          visible={isModalVisible}
+          onClose={() => setIsModalVisible(false)}
         />
       ) : null}
     </>

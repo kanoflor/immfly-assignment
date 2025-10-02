@@ -1,5 +1,4 @@
-import { BottomSheetModal } from "@gorhom/bottom-sheet";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Dimensions,
@@ -13,7 +12,7 @@ import {
   useBottomSheetHeight,
 } from "../../components/BottomSheet";
 import { ProductCard } from "../../components/ProductCard";
-import { QuantitySelectorModal } from "../../components/QuantitySelectorModal";
+import { QtySelectorModal } from "../../components/QtySelectorModal";
 import { useCartStore } from "../../store/cartStore";
 import { Product, useProductStore } from "../../store/productStore";
 import { ActionButtonGroup } from "./ActionButtonGroup";
@@ -28,6 +27,7 @@ const ITEM_WIDTH =
 
 export function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const products = useProductStore((state) => state.products);
   const fetchProducts = useProductStore((state) => state.fetchProducts);
@@ -41,11 +41,10 @@ export function Home() {
     fetchProducts();
   }, []);
 
-  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const handlePresentModalPress = useCallback((product: Product) => {
+  const handlePresentModalPress = (product: Product) => {
     setSelectedProduct(product);
-    bottomSheetModalRef.current?.present();
-  }, []);
+    setIsModalVisible(true);
+  };
 
   const renderItem = ({ item, index }: { item: Product; index: number }) => {
     const isRightColumn = (index + 1) % COLUMNS === 0;
@@ -101,9 +100,10 @@ export function Home() {
       </BottomSheet>
 
       {selectedProduct ? (
-        <QuantitySelectorModal
-          ref={bottomSheetModalRef}
+        <QtySelectorModal
           selectedProduct={selectedProduct}
+          visible={isModalVisible}
+          onClose={() => setIsModalVisible(false)}
         />
       ) : null}
     </YStack>
