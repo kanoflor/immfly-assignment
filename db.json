@@ -3,210 +3,210 @@
     {
       "id": "snack-1",
       "name": "Pringles Original",
-      "priceCentsEUR": 350,
+      "priceEUR": 350,
       "stock": 10,
       "image": "https://picsum.photos/seed/pringles/200/200"
     },
     {
       "id": "snack-2",
       "name": "KitKat Bar",
-      "priceCentsEUR": 220,
+      "priceEUR": 220,
       "stock": 15,
       "image": "https://picsum.photos/seed/kitkat/200/200"
     },
     {
       "id": "snack-3",
       "name": "Doritos Nacho Cheese",
-      "priceCentsEUR": 250,
+      "priceEUR": 250,
       "stock": 12,
       "image": "https://picsum.photos/seed/doritos/200/200"
     },
     {
       "id": "snack-4",
       "name": "Oreo Cookies",
-      "priceCentsEUR": 210,
+      "priceEUR": 210,
       "stock": 20,
       "image": "https://picsum.photos/seed/oreo/200/200"
     },
     {
       "id": "snack-5",
       "name": "Snickers Bar",
-      "priceCentsEUR": 230,
+      "priceEUR": 230,
       "stock": 8,
       "image": "https://picsum.photos/seed/snickers/200/200"
     },
     {
       "id": "snack-6",
       "name": "Twix Bar",
-      "priceCentsEUR": 240,
+      "priceEUR": 240,
       "stock": 7,
       "image": "https://picsum.photos/seed/twix/200/200"
     },
     {
       "id": "snack-7",
       "name": "M&M's Peanut",
-      "priceCentsEUR": 260,
+      "priceEUR": 260,
       "stock": 9,
       "image": "https://picsum.photos/seed/mms/200/200"
     },
     {
       "id": "snack-8",
       "name": "Cheetos Crunchy",
-      "priceCentsEUR": 270,
+      "priceEUR": 270,
       "stock": 13,
       "image": "https://picsum.photos/seed/cheetos/200/200"
     },
     {
       "id": "snack-9",
       "name": "Lay's Classic",
-      "priceCentsEUR": 200,
+      "priceEUR": 200,
       "stock": 12,
       "image": "https://picsum.photos/seed/lays/200/200"
     },
     {
       "id": "snack-10",
       "name": "Popcorn Salted",
-      "priceCentsEUR": 180,
+      "priceEUR": 180,
       "stock": 18,
       "image": "https://picsum.photos/seed/popcorn/200/200"
     },
     {
       "id": "drink-1",
       "name": "Coca-Cola 330ml",
-      "priceCentsEUR": 280,
+      "priceEUR": 280,
       "stock": 25,
       "image": "https://picsum.photos/seed/coke/200/200"
     },
     {
       "id": "drink-2",
       "name": "Still Water 500ml",
-      "priceCentsEUR": 150,
+      "priceEUR": 150,
       "stock": 30,
       "image": "https://picsum.photos/seed/water/200/200"
     },
     {
       "id": "drink-3",
       "name": "Pepsi 330ml",
-      "priceCentsEUR": 270,
+      "priceEUR": 270,
       "stock": 20,
       "image": "https://picsum.photos/seed/pepsi/200/200"
     },
     {
       "id": "drink-4",
       "name": "Red Bull 250ml",
-      "priceCentsEUR": 300,
+      "priceEUR": 300,
       "stock": 15,
       "image": "https://picsum.photos/seed/redbull/200/200"
     },
     {
       "id": "drink-5",
       "name": "Sprite 330ml",
-      "priceCentsEUR": 260,
+      "priceEUR": 260,
       "stock": 22,
       "image": "https://picsum.photos/seed/sprite/200/200"
     },
     {
       "id": "drink-6",
       "name": "Fanta Orange 330ml",
-      "priceCentsEUR": 250,
+      "priceEUR": 250,
       "stock": 20,
       "image": "https://picsum.photos/seed/fanta/200/200"
     },
     {
       "id": "drink-7",
       "name": "Monster Energy 500ml",
-      "priceCentsEUR": 320,
+      "priceEUR": 320,
       "stock": 10,
       "image": "https://picsum.photos/seed/monster/200/200"
     },
     {
       "id": "drink-8",
       "name": "Evian Water 500ml",
-      "priceCentsEUR": 200,
+      "priceEUR": 200,
       "stock": 16,
       "image": "https://picsum.photos/seed/evian/200/200"
     },
     {
       "id": "coffee-1",
       "name": "Americano",
-      "priceCentsEUR": 300,
+      "priceEUR": 300,
       "stock": 18,
       "image": "https://picsum.photos/seed/coffee/200/200"
     },
     {
       "id": "coffee-2",
       "name": "Espresso",
-      "priceCentsEUR": 250,
+      "priceEUR": 250,
       "stock": 16,
       "image": "https://picsum.photos/seed/espresso/200/200"
     },
     {
       "id": "coffee-3",
       "name": "Cappuccino",
-      "priceCentsEUR": 320,
+      "priceEUR": 320,
       "stock": 14,
       "image": "https://picsum.photos/seed/cappuccino/200/200"
     },
     {
       "id": "coffee-4",
       "name": "Latte",
-      "priceCentsEUR": 340,
+      "priceEUR": 340,
       "stock": 12,
       "image": "https://picsum.photos/seed/latte/200/200"
     },
     {
       "id": "coffee-5",
       "name": "Mocha",
-      "priceCentsEUR": 360,
+      "priceEUR": 360,
       "stock": 12,
       "image": "https://picsum.photos/seed/mocha/200/200"
     },
     {
       "id": "coffee-6",
       "name": "Flat White",
-      "priceCentsEUR": 350,
+      "priceEUR": 350,
       "stock": 8,
       "image": "https://picsum.photos/seed/flatwhite/200/200"
     },
     {
       "id": "combo-1",
       "name": "Sandwich + Drink",
-      "priceCentsEUR": 690,
+      "priceEUR": 690,
       "stock": 8,
       "image": "https://picsum.photos/seed/combo/200/200"
     },
     {
       "id": "combo-2",
       "name": "Chips + Soda",
-      "priceCentsEUR": 550,
+      "priceEUR": 550,
       "stock": 6,
       "image": "https://picsum.photos/seed/chipssoda/200/200"
     },
     {
       "id": "combo-3",
       "name": "Breakfast Combo",
-      "priceCentsEUR": 800,
+      "priceEUR": 800,
       "stock": 5,
       "image": "https://picsum.photos/seed/breakfast/200/200"
     },
     {
       "id": "combo-4",
       "name": "Lunch Combo",
-      "priceCentsEUR": 950,
+      "priceEUR": 950,
       "stock": 2,
       "image": "https://picsum.photos/seed/lunch/200/200"
     },
     {
       "id": "combo-5",
       "name": "Kids Combo",
-      "priceCentsEUR": 500,
+      "priceEUR": 500,
       "stock": 6,
       "image": "https://picsum.photos/seed/kidscombo/200/200"
     },
     {
       "id": "combo-6",
       "name": "Family Combo",
-      "priceCentsEUR": 1200,
+      "priceEUR": 1200,
       "stock": 1,
       "image": "https://picsum.photos/seed/familycombo/200/200"
     }
