@@ -2,9 +2,11 @@ import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
 import { Modal, Pressable, StyleSheet } from "react-native";
 import { Button, SizableText, Text, XStack, YStack } from "tamagui";
+import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
 import { useCurrencyStore } from "../../store/currencyStore";
+import { useProductStore } from "../../store/productStore";
 import { PickerOption } from "./ProductTypePicker";
-import { Currency } from "./currency";
+import { Currency, formatMoney } from "./currency";
 
 const currencyOptions: PickerOption<Currency>[] = [
   { label: "EUR", value: "EUR" },
@@ -16,12 +18,18 @@ export function CurrencyPicker() {
   const currency = useCurrencyStore((state) => state.currency);
   const setCurrency = useCurrencyStore((state) => state.setCurrency);
 
+  const byId = useProductStore((state) => state.byId);
+  const subtotalEUR = useCartStore(createSelectSubtotalEUR(byId));
+
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(currency);
 
   const buttonTitle = currencyOptions
     .filter((option) => option.value !== currency)
-    .map((option) => option.label)
+    .map((option) => {
+      console.log(option.value);
+      return `${formatMoney(subtotalEUR, option.value)} ${option.label}`;
+    })
     .join(" | ");
 
   const handleConfirm = () => {

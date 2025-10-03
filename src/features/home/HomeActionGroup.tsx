@@ -11,6 +11,7 @@ import { useCurrencyStore } from "../../store/currencyStore";
 import { useProductStore } from "../../store/productStore";
 import { CurrencyPicker } from "./CurrencyPicker";
 import { ProductTypeValue, pickerOptions } from "./ProductTypePicker";
+import { formatMoney } from "./currency";
 
 type HomeActionGroupProps = {
   selectedProductType: ProductTypeValue;
@@ -46,7 +47,7 @@ export function HomeActionGroup({
               PAGAR
             </SizableText>
             <Text color="white" fontSize={16} fontWeight={800}>
-              {subtotalEUR}
+              {formatMoney(subtotalEUR, currency)}
             </Text>
             <SizableText color="white" size="$5">
               {currency}

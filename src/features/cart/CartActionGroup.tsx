@@ -3,7 +3,9 @@ import { useNavigation } from "@react-navigation/native";
 import { Dimensions } from "react-native";
 import { Button, Paragraph, SizableText, XStack, YStack } from "tamagui";
 import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
+import { useCurrencyStore } from "../../store/currencyStore";
 import { useProductStore } from "../../store/productStore";
+import { formatMoney } from "../home/currency";
 
 const { width } = Dimensions.get("window");
 const HORIZONTAL_PADDING = 16;
@@ -81,6 +83,8 @@ export function CartActionGroup({
   const subtotalEUR = useCartStore(createSelectSubtotalEUR(byId));
   const checkout = useCartStore((state) => state.checkout);
 
+  const currency = useCurrencyStore((state) => state.currency);
+
   const handlePayment = async () => {
     try {
       await checkout(selectedSeat);
@@ -107,7 +111,7 @@ export function CartActionGroup({
             TOTAL
           </SizableText>
           <Paragraph size="$10" fontWeight="800">
-            {subtotalEUR}
+            {formatMoney(subtotalEUR, currency)}
           </Paragraph>
         </YStack>
       </XStack>

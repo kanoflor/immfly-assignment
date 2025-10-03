@@ -22,7 +22,9 @@ import {
 import { BottomSheet } from "../../components/BottomSheet";
 import { QtySelectorModal } from "../../components/QtySelectorModal";
 import { useCartStore } from "../../store/cartStore";
+import { useCurrencyStore } from "../../store/currencyStore";
 import { Product, useProductStore } from "../../store/productStore";
+import { currencySymbols, formatMoney } from "../home/currency";
 import { CartActionGroup } from "./CartActionGroup";
 import { SeatPicker } from "./SeatPicker";
 import { formatCartItems, FormattedCartItem } from "./util";
@@ -54,6 +56,7 @@ function CartListItem({
   onPress: (product: Product) => void;
 }) {
   const removeItem = useCartStore((state) => state.removeItem);
+  const currency = useCurrencyStore((state) => state.currency);
 
   const deleteThreshold = screenWidth * 0.8;
 
@@ -94,7 +97,7 @@ function CartListItem({
               {item.name}
             </SizableText>
             <SizableText size="$5" fontWeight="400">
-              {item.priceEUR} €
+              {formatMoney(item.priceEUR, currency)} {currencySymbols[currency]}
             </SizableText>
             <XStack flex={1} />
             <SizableText size="$3" theme="alt2">

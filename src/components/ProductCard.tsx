@@ -7,6 +7,8 @@ import {
   XStack,
   YStack,
 } from "tamagui";
+import { currencySymbols, formatMoney } from "../features/home/currency";
+import { useCurrencyStore } from "../store/currencyStore";
 import { Product } from "../store/productStore";
 import { NumberCircle } from "./NumberCircle";
 
@@ -22,6 +24,8 @@ export function ProductCard({
   onPress,
   ...props
 }: ProductCardProps) {
+  const currency = useCurrencyStore((state) => state.currency);
+
   const PriceTag = () => {
     return (
       <YStack
@@ -31,11 +35,11 @@ export function ProductCard({
         paddingHorizontal={10}
         borderRadius={20}
       >
-        <Text
-          fontSize={14}
-          fontWeight="600"
-          color="white"
-        >{`${product.priceEUR.toFixed(2)} €`}</Text>
+        <Text fontSize={14} fontWeight="600" color="white">
+          {`${formatMoney(product.priceEUR, currency)} ${
+            currencySymbols[currency]
+          }`}
+        </Text>
       </YStack>
     );
   };
