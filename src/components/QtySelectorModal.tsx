@@ -18,7 +18,11 @@ export function QtySelectorModal({
   const cartItems = useCartStore((state) => state.cartItems);
   const addItemByQty = useCartStore((state) => state.addItemByQty);
 
-  const [qty, setQty] = useState(cartItems[selectedProduct.id] ?? 1);
+  const [qty, setQty] = useState(cartItems[selectedProduct.id]);
+
+  const resetQty = () => {
+    setQty(1);
+  };
 
   const incrementQty = () => {
     if (qty >= selectedProduct.stock) {
@@ -35,6 +39,12 @@ export function QtySelectorModal({
 
   const addToCart = () => {
     addItemByQty(selectedProduct.id, qty);
+    resetQty();
+    onClose();
+  };
+
+  const handleClose = () => {
+    resetQty();
     onClose();
   };
 
@@ -82,7 +92,7 @@ export function QtySelectorModal({
               Añadir al carrito
             </SizableText>
           </Button>
-          <Button onPress={onClose} chromeless>
+          <Button onPress={handleClose} chromeless>
             Cancelar
           </Button>
         </YStack>

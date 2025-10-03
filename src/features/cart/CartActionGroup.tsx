@@ -1,7 +1,16 @@
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import { useNavigation } from "@react-navigation/native";
+import { Dimensions } from "react-native";
 import { Button, Paragraph, SizableText, XStack, YStack } from "tamagui";
 import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
 import { useProductStore } from "../../store/productStore";
+
+const { width } = Dimensions.get("window");
+const HORIZONTAL_PADDING = 16;
+const ITEM_SPACING = 12;
+const COLUMNS = 2;
+const ITEM_WIDTH =
+  (width - HORIZONTAL_PADDING * 2 - ITEM_SPACING * (COLUMNS - 1)) / COLUMNS;
 
 type CartActionGroupProps = {
   selectedSeat: string[];
@@ -28,15 +37,23 @@ function SeatButton({
   );
 }
 
-function PaymentButton({ icon, label }: { icon: string; label: string }) {
+function PaymentButton({
+  icon,
+  label,
+  onPress,
+}: {
+  icon: string;
+  label: string;
+  onPress: () => void;
+}) {
   return (
     <Button
-      width={160}
-      height={160}
+      width={ITEM_WIDTH}
+      height={ITEM_WIDTH}
       backgroundColor="$black5"
       position="relative"
+      onPress={onPress}
     >
-      {/* TODO: Icon is not centered */}
       <FontAwesome5 name={icon} size={36} color="white" />
 
       <YStack
@@ -58,8 +75,20 @@ export function CartActionGroup({
   selectedSeat,
   setIsSeatPickerVisible,
 }: CartActionGroupProps) {
+  const navigation = useNavigation();
+
   const byId = useProductStore((state) => state.byId);
   const subtotalEUR = useCartStore(createSelectSubtotalEUR(byId));
+  const checkout = useCartStore((state) => state.checkout);
+
+  const handlePayment = async () => {
+    try {
+      await checkout(selectedSeat);
+      navigation.goBack();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <YStack gap={20}>
@@ -83,8 +112,12 @@ export function CartActionGroup({
         </YStack>
       </XStack>
       <XStack flex={1} justifyContent="space-between">
-        <PaymentButton icon="coins" label="Effectivo" />
-        <PaymentButton icon="credit-card" label="Tarjeta" />
+        <PaymentButton icon="coins" label="Effectivo" onPress={handlePayment} />
+        <PaymentButton
+          icon="credit-card"
+          label="Tarjeta"
+          onPress={handlePayment}
+        />
       </XStack>
     </YStack>
   );

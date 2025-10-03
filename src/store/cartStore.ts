@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { ProductsById } from "./productStore";
+import { ProductsById, useProductStore } from "./productStore";
 
 export type CartItems = Record<string, number>;
 
@@ -27,10 +27,9 @@ type Actions = {
   clear: () => void;
 
   /** Checkout: call `/pay` and if successful, clear the cart (stock deduction is done on the server side) */
-  checkout: (opts: {
-    endpoint: string; // example: http://localhost:3001/pay
-    headers?: Record<string, string>;
-  }) => Promise<{ ok: boolean; paymentId?: string }>;
+  checkout: (
+    seatCode: string[]
+  ) => Promise<{ ok: boolean; paymentId?: string }>;
 };
 
 export type CartStore = State & Actions;
@@ -86,7 +85,7 @@ export const useCartStore = create<CartStore>()(
 
       clear: () => set({ cartItems: {} }),
 
-      checkout: async ({ endpoint, headers }) => {
+      checkout: async (seatCode) => {
         const { cartItems } = get();
         const items = Object.entries(cartItems).map(([id, qty]) => ({
           id,
@@ -97,28 +96,36 @@ export const useCartStore = create<CartStore>()(
 
         set({ isProcessingPayment: true });
         try {
-          const res = await fetch(endpoint, {
-            method: "POST",
-            headers: { "Content-Type": "application/json", ...(headers || {}) },
-            body: JSON.stringify({ items }),
-          });
+          const res = await fetch(
+            "https://my-json-server.typicode.com/kanoflor/immfly-assignment/products",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ seatCode: seatCode.join(""), ...items }),
+            }
+          );
           const data = await res.json().catch(() => ({}));
+
           if (!res.ok) throw new Error("payment_failed");
 
-          // サーバー側で在庫は減算済み（JSON Server 実装想定）
-          // 成功時はカートを空に
+          // Reduce stock for purchased items after successful payment
+          useProductStore.getState().reduceStock(items);
+
           set({ cartItems: {}, isProcessingPayment: false });
           return { ok: true, paymentId: String(data?.paymentId ?? "") };
         } catch {
-          set({ isProcessingPayment: false });
           return { ok: false };
+        } finally {
+          set({ isProcessingPayment: false });
         }
       },
     }),
     {
       name: "cart-store",
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: (s) => ({ cartItems: s.cartItems }),
+      partialize: (state) => ({ cartItems: state.cartItems }),
     }
   )
 );

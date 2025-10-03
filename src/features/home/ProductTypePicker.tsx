@@ -14,12 +14,12 @@ export const productTypeValues = [
 
 export type ProductTypeValue = (typeof productTypeValues)[number];
 
-export type PickerOption = {
+export type PickerOption<T> = {
   label: string;
-  value: ProductTypeValue;
+  value: T;
 };
 
-export const pickerOptions: PickerOption[] = [
+export const pickerOptions: PickerOption<ProductTypeValue>[] = [
   { label: "Business", value: "business" },
   { label: "Retail", value: "retail" },
   { label: "Crew", value: "crew" },

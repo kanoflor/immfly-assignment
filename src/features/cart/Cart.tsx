@@ -1,7 +1,13 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Dimensions, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  ActivityIndicator,
+  Dimensions,
+  Pressable,
+  StyleSheet,
+  View,
+} from "react-native";
 import ReanimatedSwipeable from "react-native-gesture-handler/ReanimatedSwipeable";
 import Animated from "react-native-reanimated";
 import {
@@ -58,9 +64,9 @@ function CartListItem({
   const renderRightActions = () => {
     return (
       <Animated.View style={styles.deleteAction}>
-        <TouchableOpacity style={styles.deleteButton} onPress={handleDelete}>
+        <Pressable style={styles.deleteButton} onPress={handleDelete}>
           <Ionicons name="trash" size={24} color="white" />
-        </TouchableOpacity>
+        </Pressable>
       </Animated.View>
     );
   };
@@ -69,11 +75,11 @@ function CartListItem({
     <ReanimatedSwipeable
       renderRightActions={renderRightActions}
       rightThreshold={deleteThreshold}
-      onSwipeableWillOpen={() => handleDelete()}
+      onSwipeableWillOpen={handleDelete}
     >
-      <YStack backgroundColor="white">
-        <TouchableOpacity onPress={() => onPress(item)}>
-          <XStack alignItems="center" gap={10}>
+      <YStack backgroundColor="#F5F5F5">
+        <Pressable onPress={() => onPress(item)}>
+          <XStack alignItems="center" gap={10} paddingRight={20}>
             <XStack borderRadius={8} overflow="hidden">
               <Image
                 alignSelf="center"
@@ -96,7 +102,7 @@ function CartListItem({
             </SizableText>
           </XStack>
           <Separator marginVertical={8} />
-        </TouchableOpacity>
+        </Pressable>
       </YStack>
     </ReanimatedSwipeable>
   );
@@ -111,6 +117,9 @@ export function Cart() {
 
   const cartItems = useCartStore((state) => state.cartItems);
   const byId = useProductStore((state) => state.byId);
+  const isProcessingPayment = useCartStore(
+    (state) => state.isProcessingPayment
+  );
 
   const formattedCartItems = formatCartItems(cartItems, byId);
 
@@ -156,25 +165,38 @@ export function Cart() {
         selectedSeat={selectedSeat}
         setSelectedSeat={setSelectedSeat}
       />
+
+      {isProcessingPayment && (
+        <View style={styles.loadingOverlay}>
+          <ActivityIndicator size="large" />
+        </View>
+      )}
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  itemContainer: {
-    backgroundColor: "white",
-  },
   deleteAction: {
     flex: 1,
     backgroundColor: "#ff4444",
     justifyContent: "center",
     alignItems: "flex-end",
-    paddingRight: 20,
   },
   deleteButton: {
     justifyContent: "center",
     alignItems: "center",
     width: 60,
     height: "100%",
+  },
+  loadingOverlay: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1000,
   },
 });

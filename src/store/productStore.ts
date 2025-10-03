@@ -23,6 +23,9 @@ type Actions = {
 
   /** Fetch products and set products and byId */
   fetchProducts: () => void;
+
+  /** Reduce stock for purchased items and remove products with 0 stock */
+  reduceStock: (items: { id: string; qty: number }[]) => void;
 };
 
 export type ProductStore = State & Actions;
@@ -64,5 +67,32 @@ export const useProductStore = create<ProductStore>((set, get) => ({
     } finally {
       set({ isFetching: false });
     }
+  },
+  reduceStock: (items) => {
+    const { products, byId } = get();
+    const updatedProducts: Product[] = [];
+    const updatedById: Record<string, Product | undefined> = {};
+
+    // Create a map of item quantities for quick lookup
+    const itemQtyMap = items.reduce((acc, item) => {
+      acc[item.id] = item.qty;
+      return acc;
+    }, {} as Record<string, number>);
+
+    // Process each product
+    products.forEach((product) => {
+      const purchasedQty = itemQtyMap[product.id] || 0;
+      const newStock = product.stock - purchasedQty;
+
+      // Only keep products with stock > 0
+      if (newStock > 0) {
+        const updatedProduct = { ...product, stock: newStock };
+        updatedProducts.push(updatedProduct);
+        updatedById[product.id] = updatedProduct;
+      }
+      // Products with stock <= 0 are removed (not added to arrays)
+    });
+
+    set({ products: updatedProducts, byId: updatedById });
   },
 }));

@@ -15,7 +15,7 @@ import { ProductCard } from "../../components/ProductCard";
 import { QtySelectorModal } from "../../components/QtySelectorModal";
 import { useCartStore } from "../../store/cartStore";
 import { Product, useProductStore } from "../../store/productStore";
-import { ActionButtonGroup } from "./ActionButtonGroup";
+import { HomeActionGroup } from "./HomeActionGroup";
 import {
   pickerOptions,
   ProductTypePicker,
@@ -51,7 +51,7 @@ export function Home() {
     fetchProducts();
   }, []);
 
-  const handlePresentModalPress = (product: Product) => {
+  const handleProductCardPress = (product: Product) => {
     setSelectedProduct(product);
     setIsQtyModalVisible(true);
   };
@@ -68,13 +68,15 @@ export function Home() {
           selectedQuantity={selectedQuantity}
           width={ITEM_WIDTH}
           height={ITEM_WIDTH}
-          onPress={() => handlePresentModalPress(item)}
+          onPress={() => handleProductCardPress(item)}
         />
       </View>
     );
   };
 
   return (
+    // <RefreshControl />
+
     // TODO: background color to be grey
     <YStack
       flex={1}
@@ -105,7 +107,7 @@ export function Home() {
       )}
       <BottomSheet>
         <YStack justifyContent="center" alignItems="center">
-          <ActionButtonGroup
+          <HomeActionGroup
             onSecondButtonPress={() => setIsProductTypePickerVisible(true)}
             selectedProductType={selectedProductType}
           />
@@ -126,63 +128,6 @@ export function Home() {
         setSelectedProductType={setSelectedProductType}
         onClose={() => setIsProductTypePickerVisible(false)}
       />
-
-      {/* {isPickerVisible ? (
-        <View
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: [{ translateX: -100 }, { translateY: -25 }],
-            width: 250,
-            flex: 1,
-            backgroundColor: "white",
-            display: "flex",
-            flexDirection: "row",
-          }}
-        >
-          <Picker
-            selectedValue={selectedLanguage}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedLanguage(itemValue)
-            }
-            style={{
-              // position: "absolute",
-              // top: "50%",
-              // left: "50%",
-              // transform: [{ translateX: -100 }, { translateY: -25 }],
-              // width: 250,
-              // flex: 1,
-              // backgroundColor: "white",
-              width: "50%",
-            }}
-          >
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
-            <Picker.Item label="Python" value="python" />
-          </Picker>
-          <Picker
-            selectedValue={selectedLanguage}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedLanguage(itemValue)
-            }
-            style={{
-              // position: "absolute",
-              // top: "50%",
-              // left: "50%",
-              // transform: [{ translateX: -100 }, { translateY: -25 }],
-              // width: 250,
-              // flex: 1,
-              // backgroundColor: "white",
-              width: "50%",
-            }}
-          >
-            <Picker.Item label="Java" value="java" />
-            <Picker.Item label="JavaScript" value="js" />
-            <Picker.Item label="Python" value="python" />
-          </Picker>
-        </View>
-      ) : null} */}
     </YStack>
   );
 }

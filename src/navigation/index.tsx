@@ -9,7 +9,7 @@ import { NotFound } from "./screens/NotFound";
 
 const RootStack = createNativeStackNavigator({
   screens: {
-    HomeTabs: {
+    Home: {
       screen: Home,
       options: {
         title: "Home",
