@@ -1,27 +1,11 @@
-# Starter Template with React Navigation
+## Overview
 
-This is a minimal starter template for React Native apps using Expo and React Navigation.
+This React Native project is a technical assignment for the Mobile Engineer position at Immfly.
 
-It includes the following:
+It simulates a simple in-flight shopping flow:
 
-- Example [Native Stack](https://reactnavigation.org/docs/native-stack-navigator) with a nested [Bottom Tab](https://reactnavigation.org/docs/bottom-tab-navigator)
-- Web support with [React Native for Web](https://necolas.github.io/react-native-web/)
-- TypeScript support and configured for React Navigation
-- Automatic [deep link](https://reactnavigation.org/docs/deep-linking) and [URL handling configuration](https://reactnavigation.org/docs/configuring-links)
-- Theme support [based on system appearance](https://reactnavigation.org/docs/themes/#using-the-operating-system-preferences)
-- Expo [Development Build](https://docs.expo.dev/develop/development-builds/introduction/) with [Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)
-
-## Getting Started
-
-1. Create a new project using this template:
-
-   ```sh
-   npx create-expo-app@latest --template react-navigation/template
-   ```
-
-2. Edit the `app.json` file to configure the `name`, `slug`, `scheme` and bundle identifiers (`ios.bundleIdentifier` and `android.bundleIdentifier`) for your app.
-
-3. Edit the `src/App.tsx` file to start working on your app.
+- Screen 1: product list fetched from an API (JSON Server)
+- Screen 2: payment simulation (always 200 response)
 
 ## Running the app
 
@@ -47,19 +31,22 @@ It includes the following:
 
 - In the terminal running the development server, press `i` to open the iOS simulator, `a` to open the Android device or emulator, or `w` to open the web browser.
 
-## Notes
+## Tech Stack
 
-This project uses a [development build](https://docs.expo.dev/develop/development-builds/introduction/) and cannot be run with [Expo Go](https://expo.dev/go). To run the app with Expo Go, edit the `package.json` file, remove the `expo-dev-client` package and `--dev-client` flag from the `start` script.
+- **React Native (Expo)**
+- **TypeScript**
+- **Tamagui** (UI kit)
+- **Zustand** – lightweight state management with fine-grained selectors
+- **React Navigation (stack)** – two-screen flow
+- **JSON Server** – mock REST API with `/products` and `/pay` endpoints
+- **AsyncStorage** – local persistence for cart and currency used with zustand
+- **React Native Picker** - system UI for picking between several options (dropdowns) supported in Expo
 
-We highly recommend using the development builds for normal development and testing.
+## Architecture & Decisions
 
-The `ios` and `android` folder are gitignored in the project by default as they are automatically generated during the build process ([Continuous Native Generation](https://docs.expo.dev/workflow/continuous-native-generation/)). This means that you should not edit these folders directly and use [config plugins](https://docs.expo.dev/config-plugins/) instead. However, if you need to edit these folders, you can remove them from the `.gitignore` file so that they are tracked by git.
-
-## Resources
-
-- [React Navigation documentation](https://reactnavigation.org/)
-- [Expo documentation](https://docs.expo.dev/)
-
----
-
-Demo assets are from [lucide.dev](https://lucide.dev/)
+- **Feature-based Architecture:** Organizes code by feature for better modularity and maintainability.
+- **Tamagui for UI:** Used for its cross-platform, performant, and themeable component library, enabling rapid development of consistent and visually appealing interfaces across native and web.
+- **Zustand over Redux:** Chosen for its small API and performant selector-based updates.
+  It fits the two-screen scope better than a full Redux setup.
+- **Normalized Data:** Products are stored by ID (byId) to allow O(1) lookups from cart items.
+- **AsyncStorage Persistence:** Only minimal state (cart, currency) is persisted.
