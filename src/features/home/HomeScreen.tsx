@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   ActivityIndicator,
   Dimensions,
@@ -6,7 +6,7 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { H4, XStack, YStack } from "tamagui";
+import { XStack, YStack } from "tamagui";
 import {
   BottomSheet,
   useBottomSheetHeight,
@@ -56,35 +56,34 @@ export function Home() {
     setIsQtyModalVisible(true);
   };
 
-  const renderItem = ({ item, index }: { item: Product; index: number }) => {
-    const isRightColumn = (index + 1) % COLUMNS === 0;
-    const selectedQuantity = cartItems[item.id] ?? 0;
-    return (
-      <View
-        style={[styles.itemContainer, !isRightColumn && styles.itemSpacing]}
-      >
-        <ProductCard
-          product={item}
-          selectedQuantity={selectedQuantity}
-          width={ITEM_WIDTH}
-          height={ITEM_WIDTH}
-          onPress={() => handleProductCardPress(item)}
-        />
-      </View>
-    );
-  };
+  const renderItem = useCallback(
+    ({ item, index }: { item: Product; index: number }) => {
+      const isRightColumn = (index + 1) % COLUMNS === 0;
+      const selectedQuantity = cartItems[item.id] ?? 0;
+      return (
+        <View
+          style={[styles.itemContainer, !isRightColumn && styles.itemSpacing]}
+        >
+          <ProductCard
+            product={item}
+            selectedQuantity={selectedQuantity}
+            width={ITEM_WIDTH}
+            height={ITEM_WIDTH}
+            onPress={() => handleProductCardPress(item)}
+          />
+        </View>
+      );
+    },
+    [cartItems]
+  );
 
   return (
-    // <RefreshControl />
-
-    // TODO: background color to be grey
     <YStack
       flex={1}
-      paddingVertical={60}
+      paddingVertical={20}
       paddingHorizontal={HORIZONTAL_PADDING}
       gap={10}
     >
-      <H4 fontWeight="800">Refrescos</H4>
       {isFetching ? (
         <ActivityIndicator size="large" color="$blue10" />
       ) : (
@@ -100,8 +99,8 @@ export function Home() {
           columnWrapperStyle={styles.row}
           ItemSeparatorComponent={() => <XStack height={ITEM_SPACING} />}
           showsVerticalScrollIndicator={false}
-          // initialNumToRender={10}
-          // removeClippedSubviews={true}
+          refreshing={isFetching}
+          onRefresh={fetchProducts}
           // getItemLayout={getItemLayout}
         />
       )}

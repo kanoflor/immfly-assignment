@@ -20,9 +20,11 @@ export function formatMoney(
   locale = "en-US"
 ) {
   const rate = rates[currency];
+  const value = (cents * rate) / 100;
+  const isZero = value === 0;
   return new Intl.NumberFormat(locale, {
     style: "decimal",
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format((cents * rate) / 100);
+    minimumFractionDigits: isZero ? 0 : 2,
+    maximumFractionDigits: isZero ? 0 : 2,
+  }).format(value);
 }

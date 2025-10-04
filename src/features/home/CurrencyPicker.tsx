@@ -5,8 +5,8 @@ import { Button, SizableText, Text, XStack, YStack } from "tamagui";
 import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
 import { useCurrencyStore } from "../../store/currencyStore";
 import { useProductStore } from "../../store/productStore";
+import { Currency, formatMoney } from "../../utils/currency";
 import { PickerOption } from "./ProductTypePicker";
-import { Currency, formatMoney } from "./currency";
 
 const currencyOptions: PickerOption<Currency>[] = [
   { label: "EUR", value: "EUR" },
@@ -26,10 +26,9 @@ export function CurrencyPicker() {
 
   const buttonTitle = currencyOptions
     .filter((option) => option.value !== currency)
-    .map((option) => {
-      console.log(option.value);
-      return `${formatMoney(subtotalEUR, option.value)} ${option.label}`;
-    })
+    .map(
+      (option) => `${formatMoney(subtotalEUR, option.value)} ${option.label}`
+    )
     .join(" | ");
 
   const handleConfirm = () => {

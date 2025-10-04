@@ -24,7 +24,7 @@ import { QtySelectorModal } from "../../components/QtySelectorModal";
 import { useCartStore } from "../../store/cartStore";
 import { useCurrencyStore } from "../../store/currencyStore";
 import { Product, useProductStore } from "../../store/productStore";
-import { currencySymbols, formatMoney } from "../home/currency";
+import { currencySymbols, formatMoney } from "../../utils/currency";
 import { CartActionGroup } from "./CartActionGroup";
 import { SeatPicker } from "./SeatPicker";
 import { formatCartItems, FormattedCartItem } from "./util";

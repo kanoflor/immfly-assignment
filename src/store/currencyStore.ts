@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { Currency } from "../features/home/currency";
+import { Currency } from "../utils/currency";
 
 type CurrencyStore = {
   currency: Currency;

@@ -5,7 +5,7 @@ import { Button, Paragraph, SizableText, XStack, YStack } from "tamagui";
 import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
 import { useCurrencyStore } from "../../store/currencyStore";
 import { useProductStore } from "../../store/productStore";
-import { formatMoney } from "../home/currency";
+import { formatMoney } from "../../utils/currency";
 
 const { width } = Dimensions.get("window");
 const HORIZONTAL_PADDING = 16;

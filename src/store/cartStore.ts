@@ -114,9 +114,13 @@ export const useCartStore = create<CartStore>()(
           useProductStore.getState().reduceStock(items);
 
           set({ cartItems: {}, isProcessingPayment: false });
-          return { ok: true, paymentId: String(data?.paymentId ?? "") };
+          return {
+            statusCode: 200,
+            ok: true,
+            paymentId: String(data?.paymentId ?? ""),
+          };
         } catch {
-          return { ok: false };
+          return { statusCode: 200, ok: false };
         } finally {
           set({ isProcessingPayment: false });
         }

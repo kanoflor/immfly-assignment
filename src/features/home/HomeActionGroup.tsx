@@ -9,9 +9,9 @@ import {
 } from "../../store/cartStore";
 import { useCurrencyStore } from "../../store/currencyStore";
 import { useProductStore } from "../../store/productStore";
+import { formatMoney } from "../../utils/currency";
 import { CurrencyPicker } from "./CurrencyPicker";
 import { ProductTypeValue, pickerOptions } from "./ProductTypePicker";
-import { formatMoney } from "./currency";
 
 type HomeActionGroupProps = {
   selectedProductType: ProductTypeValue;

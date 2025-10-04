@@ -7,9 +7,9 @@ import {
   XStack,
   YStack,
 } from "tamagui";
-import { currencySymbols, formatMoney } from "../features/home/currency";
 import { useCurrencyStore } from "../store/currencyStore";
 import { Product } from "../store/productStore";
+import { currencySymbols, formatMoney } from "../utils/currency";
 import { NumberCircle } from "./NumberCircle";
 
 type ProductCardProps = {
