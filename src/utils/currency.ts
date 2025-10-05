@@ -17,7 +17,7 @@ export function convertCents(centsEUR: number, target: Currency) {
 export function formatMoney(
   cents: number,
   currency: Currency,
-  locale = "en-US"
+  locale = "en-US",
 ) {
   const rate = rates[currency];
   const value = (cents * rate) / 100;

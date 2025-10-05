@@ -28,7 +28,7 @@ export function CurrencyPicker() {
   const buttonTitle = currencyOptions
     .filter((option) => option.value !== currency)
     .map(
-      (option) => `${formatMoney(subtotalEUR, option.value)} ${option.label}`
+      (option) => `${formatMoney(subtotalEUR, option.value)} ${option.label}`,
     )
     .join(" | ");
 

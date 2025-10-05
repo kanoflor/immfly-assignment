@@ -122,7 +122,7 @@ export function Cart() {
   const cartItems = useCartStore((state) => state.cartItems);
   const byId = useProductStore((state) => state.byId);
   const isProcessingPayment = useCartStore(
-    (state) => state.isProcessingPayment
+    (state) => state.isProcessingPayment,
   );
 
   const formattedCartItems = formatCartItems(cartItems, byId);

@@ -41,7 +41,7 @@ export function Home() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   const handleProductCardPress = (product: Product) => {
     setSelectedProduct(product);
@@ -66,7 +66,7 @@ export function Home() {
         </View>
       );
     },
-    [cartItems]
+    [cartItems],
   );
 
   const getItemLayout = useCallback(
@@ -75,7 +75,7 @@ export function Home() {
       offset: ITEM_WIDTH * index,
       index,
     }),
-    []
+    [],
   );
 
   return (

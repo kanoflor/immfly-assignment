@@ -58,7 +58,7 @@ export const useProductStore = create<ProductStore>((set, get) => ({
       if (Date.now() - (get().lastFetchedAt ?? 0) < ttl) return;
 
       const res = await fetch(
-        "https://my-json-server.typicode.com/kanoflor/immfly-assignment/products"
+        "https://my-json-server.typicode.com/kanoflor/immfly-assignment/products",
       );
       const data: Product[] = await res.json();
       get().setProducts(data);
@@ -69,15 +69,18 @@ export const useProductStore = create<ProductStore>((set, get) => ({
     }
   },
   reduceStock: (items) => {
-    const { products, byId } = get();
+    const { products } = get();
     const updatedProducts: Product[] = [];
     const updatedById: Record<string, Product | undefined> = {};
 
     // Create a map of item quantities for quick lookup
-    const itemQtyMap = items.reduce((acc, item) => {
-      acc[item.id] = item.qty;
-      return acc;
-    }, {} as Record<string, number>);
+    const itemQtyMap = items.reduce(
+      (acc, item) => {
+        acc[item.id] = item.qty;
+        return acc;
+      },
+      {} as Record<string, number>,
+    );
 
     // Process each product
     products.forEach((product) => {

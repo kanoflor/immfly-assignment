@@ -14,8 +14,11 @@ jest.mock("../store/productStore.ts", () => ({
 
 describe("<Home />", () => {
   beforeEach(() => {
-    const mockUseProductStore =
-      require("../store/productStore.ts").useProductStore;
+    const mockUseProductStore = (
+      jest.requireMock("../store/productStore.ts") as {
+        useProductStore: jest.Mock;
+      }
+    ).useProductStore;
     mockUseProductStore.mockImplementation((selector: any) => {
       const state = {
         products: [],

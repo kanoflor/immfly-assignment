@@ -9,7 +9,7 @@ type BottomSheetContextType = {
 };
 
 const BottomSheetContext = createContext<BottomSheetContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export function BottomSheetProvider({ children }: { children: ReactNode }) {
@@ -29,7 +29,7 @@ export function useBottomSheetHeight() {
   const context = useContext(BottomSheetContext);
   if (context === undefined) {
     throw new Error(
-      "useBottomSheetHeight must be used within a BottomSheetProvider"
+      "useBottomSheetHeight must be used within a BottomSheetProvider",
     );
   }
   return context;

@@ -28,7 +28,7 @@ type Actions = {
 
   /** Checkout: call `/pay` and if successful, clear the cart (stock deduction is done on the server side) */
   checkout: (
-    seatCode: string[]
+    seatCode: string[],
   ) => Promise<{ ok: boolean; paymentId?: string }>;
 };
 
@@ -104,7 +104,7 @@ export const useCartStore = create<CartStore>()(
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({ seatCode: seatCode.join(""), ...items }),
-            }
+            },
           );
           const data = await res.json().catch(() => ({}));
 
@@ -130,8 +130,8 @@ export const useCartStore = create<CartStore>()(
       name: "cart-store",
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (state) => ({ cartItems: state.cartItems }),
-    }
-  )
+    },
+  ),
 );
 
 /* ------------------- selectors ------------------- */

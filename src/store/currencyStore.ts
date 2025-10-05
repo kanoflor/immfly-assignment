@@ -18,6 +18,6 @@ export const useCurrencyStore = create<CurrencyStore>()(
       name: "currency-store",
       storage: createJSONStorage(() => AsyncStorage),
       partialize: (state) => ({ currency: state.currency }),
-    }
-  )
+    },
+  ),
 );

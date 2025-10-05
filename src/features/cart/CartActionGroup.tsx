@@ -33,10 +33,12 @@ function SeatButton({
 }
 
 function PaymentButton({
+  disabled,
   icon,
   label,
   onPress,
 }: {
+  disabled: boolean;
   icon: string;
   label: string;
   onPress: () => void;
@@ -48,6 +50,7 @@ function PaymentButton({
       backgroundColor="$black5"
       position="relative"
       onPress={onPress}
+      disabled={disabled}
     >
       <FontAwesome5 name={icon} size={36} color="white" />
 
@@ -75,6 +78,9 @@ export function CartActionGroup({
   const byId = useProductStore((state) => state.byId);
   const subtotalEUR = useCartStore(createSelectSubtotalEUR(byId));
   const checkout = useCartStore((state) => state.checkout);
+  const cartItems = useCartStore((state) => state.cartItems);
+
+  const paymentButtonDisabled = Object.keys(cartItems).length === 0;
 
   const currency = useCurrencyStore((state) => state.currency);
 
@@ -109,8 +115,14 @@ export function CartActionGroup({
         </YStack>
       </XStack>
       <XStack flex={1} justifyContent="space-between">
-        <PaymentButton icon="coins" label="Effectivo" onPress={handlePayment} />
         <PaymentButton
+          disabled={paymentButtonDisabled}
+          icon="coins"
+          label="Effectivo"
+          onPress={handlePayment}
+        />
+        <PaymentButton
+          disabled={paymentButtonDisabled}
           icon="credit-card"
           label="Tarjeta"
           onPress={handlePayment}
