@@ -7,6 +7,16 @@ It simulates a simple in-flight shopping flow:
 - **Screen 1 (Home)**: Product catalog with multi-currency support, quantity selection, and product type filtering
 - **Screen 2 (Cart)**: Shopping cart management with seat selection, payment methods, and inventory updates after payment
 
+## Screen record
+
+- Screen 1
+
+https://github.com/user-attachments/assets/465f3de8-dbe6-40ac-9639-de10f8aa74a4
+
+- Screen 2
+
+https://github.com/user-attachments/assets/c04bb8f4-15ad-4dac-be31-e030980bff66
+
 ## Running the app
 
 - Install the dependencies:
