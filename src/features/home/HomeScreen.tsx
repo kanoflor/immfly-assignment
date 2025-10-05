@@ -89,6 +89,7 @@ export function Home() {
         <ActivityIndicator size="large" color="$blue10" />
       ) : (
         <FlatList
+          testID="products-flatlist"
           data={products}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
