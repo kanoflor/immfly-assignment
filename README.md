@@ -149,5 +149,5 @@ src/
 
 ### Testing Status
 
-- **Unit Tests:** Not implemented due to time constraints, but recommended for production use
-- **Testing Framework:** Would recommend Jest + React Native Testing Library for comprehensive testing
+- **Unit Tests:** Implemented for the HomeScreen only due to time constraints
+- **Testing Framework:** Jest + React Native Testing Library for comprehensive testing
