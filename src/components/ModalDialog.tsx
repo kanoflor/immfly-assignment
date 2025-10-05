@@ -39,12 +39,7 @@ function ModalDialogContent({ children, title }: ModalDialogContentProps) {
 
 function ModalDialogFooter({ children }: ModalDialogFooterProps) {
   return (
-    <YStack
-      flexDirection="row"
-      justifyContent="flex-end"
-      gap={10}
-      marginTop={40}
-    >
+    <YStack flexDirection="row" justifyContent="flex-end" gap={10}>
       {children}
     </YStack>
   );
@@ -77,8 +72,9 @@ export function ModalDialog({
             paddingVertical={20}
             paddingHorizontal={40}
             borderRadius={10}
+            justifyContent="center"
             alignItems="center"
-            minHeight={350}
+            minHeight={300}
             minWidth={300}
           >
             {children}

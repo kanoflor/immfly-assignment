@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Modal } from "react-native";
-import { Button, H6, SizableText, XGroup, YStack } from "tamagui";
+import { Button, SizableText, XGroup, XStack } from "tamagui";
 import { useCartStore } from "../store/cartStore";
 import { Product } from "../store/productStore";
+import { ModalDialog } from "./ModalDialog";
 
 type QtySelectorModalProps = {
   selectedProduct: Product;
@@ -49,54 +49,36 @@ export function QtySelectorModal({
   };
 
   return (
-    <Modal
-      animationType="fade"
-      transparent={true}
-      visible={visible}
-      onRequestClose={onClose}
-    >
-      <YStack
-        flex={1}
-        alignItems="center"
-        justifyContent="center"
-        backgroundColor="rgba(0, 0, 0, 0.5)"
-      >
-        <YStack
-          backgroundColor="white"
-          gap={20}
-          paddingVertical={20}
-          paddingHorizontal={40}
-          borderRadius={10}
-          justifyContent="center"
-          alignItems="center"
-          minHeight={300}
-          minWidth={300}
-        >
-          <H6>{selectedProduct.name}</H6>
-          <XGroup>
-            <Button disabled={qty <= 0} onPress={decrementQty}>
-              <SizableText size="$8">-</SizableText>
-            </Button>
-            <SizableText paddingHorizontal={20} alignSelf="center" size="$8">
-              {qty}
-            </SizableText>
-            <Button
-              disabled={qty >= selectedProduct.stock}
-              onPress={incrementQty}
-            >
-              <SizableText size="$8">+</SizableText>
-            </Button>
-          </XGroup>
+    <ModalDialog isVisible={visible} onClose={handleClose}>
+      <ModalDialog.Content title={selectedProduct.name}>
+        <XGroup>
+          <Button disabled={qty <= 0} onPress={decrementQty}>
+            <SizableText size="$8">-</SizableText>
+          </Button>
+          <SizableText paddingHorizontal={20} alignSelf="center" size="$8">
+            {qty}
+          </SizableText>
+          <Button
+            disabled={qty >= selectedProduct.stock}
+            onPress={incrementQty}
+          >
+            <SizableText size="$8">+</SizableText>
+          </Button>
+        </XGroup>
+      </ModalDialog.Content>
+
+      <ModalDialog.Footer>
+        <XStack gap={20} marginTop={20}>
+          <Button onPress={handleClose} chromeless>
+            Cancelar
+          </Button>
           <Button backgroundColor="$blue8" onPress={addToCart}>
             <SizableText size="$6" fontWeight="400" color="white">
               Añadir al carrito
             </SizableText>
           </Button>
-          <Button onPress={handleClose} chromeless>
-            Cancelar
-          </Button>
-        </YStack>
-      </YStack>
-    </Modal>
+        </XStack>
+      </ModalDialog.Footer>
+    </ModalDialog>
   );
 }

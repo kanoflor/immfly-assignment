@@ -1,7 +1,8 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
-import { Modal, StyleSheet } from "react-native";
-import { Button, SizableText, XStack, YStack } from "tamagui";
+import { StyleSheet } from "react-native";
+import { Button, XStack } from "tamagui";
+import { ModalDialog } from "../../components/ModalDialog";
 
 const seatLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
 
@@ -30,69 +31,46 @@ export function SeatPicker({
   };
 
   return (
-    <Modal
-      visible={isVisible}
-      animationType="fade"
-      transparent={true}
-      onRequestClose={onClose}
-    >
-      <YStack
-        flex={1}
-        alignItems="center"
-        justifyContent="center"
-        backgroundColor="rgba(0, 0, 0, 0.5)"
-      >
-        <YStack
-          backgroundColor="white"
-          gap={20}
-          paddingVertical={20}
-          paddingHorizontal={40}
-          borderRadius={10}
-          alignItems="center"
-          minHeight={350}
-          minWidth={300}
-        >
-          <SizableText size="$6" fontWeight="bold">
-            Seleccionar Asiento
-          </SizableText>
+    <ModalDialog isVisible={isVisible} onClose={onClose}>
+      <ModalDialog.Content title="Seleccionar Asiento">
+        <XStack gap={20} alignItems="center">
+          <Picker
+            selectedValue={selectedLetter}
+            onValueChange={(value) => setSelectedLetter(value)}
+            style={styles.picker}
+          >
+            {seatLetters.map((letter) => (
+              <Picker.Item key={letter} label={letter} value={letter} />
+            ))}
+          </Picker>
 
-          <XStack gap={20} alignItems="center">
-            <Picker
-              selectedValue={selectedLetter}
-              onValueChange={(value) => setSelectedLetter(value)}
-              style={styles.picker}
-            >
-              {seatLetters.map((letter) => (
-                <Picker.Item key={letter} label={letter} value={letter} />
-              ))}
-            </Picker>
+          <Picker
+            selectedValue={selectedNumber}
+            onValueChange={(value) => setSelectedNumber(value)}
+            style={styles.picker}
+          >
+            {seatNumbers.map((number) => (
+              <Picker.Item key={number} label={number} value={number} />
+            ))}
+          </Picker>
+        </XStack>
+      </ModalDialog.Content>
 
-            <Picker
-              selectedValue={selectedNumber}
-              onValueChange={(value) => setSelectedNumber(value)}
-              style={styles.picker}
-            >
-              {seatNumbers.map((number) => (
-                <Picker.Item key={number} label={number} value={number} />
-              ))}
-            </Picker>
-          </XStack>
-
-          <XStack gap={20} marginTop={40}>
-            <Button onPress={onClose} chromeless>
-              Cancelar
-            </Button>
-            <Button
-              backgroundColor="$blue10"
-              color="white"
-              onPress={handleConfirm}
-            >
-              Confirmar
-            </Button>
-          </XStack>
-        </YStack>
-      </YStack>
-    </Modal>
+      <ModalDialog.Footer>
+        <XStack gap={20} marginTop={40}>
+          <Button onPress={onClose} chromeless>
+            Cancelar
+          </Button>
+          <Button
+            backgroundColor="$blue10"
+            color="white"
+            onPress={handleConfirm}
+          >
+            Confirmar
+          </Button>
+        </XStack>
+      </ModalDialog.Footer>
+    </ModalDialog>
   );
 }
 

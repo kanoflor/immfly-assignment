@@ -1,7 +1,8 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
-import { Modal, Pressable, StyleSheet } from "react-native";
-import { Button, SizableText, Text, XStack, YStack } from "tamagui";
+import { Pressable, StyleSheet } from "react-native";
+import { Button, Text, XStack } from "tamagui";
+import { ModalDialog } from "../../components/ModalDialog";
 import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
 import { useCurrencyStore } from "../../store/currencyStore";
 import { useProductStore } from "../../store/productStore";
@@ -42,61 +43,40 @@ export function CurrencyPicker() {
         <Text>{buttonTitle}</Text>
       </Pressable>
 
-      <Modal
-        visible={isVisible}
-        animationType="fade"
-        transparent={true}
-        onRequestClose={() => setIsVisible(false)}
-      >
-        <YStack
-          flex={1}
-          alignItems="center"
-          justifyContent="center"
-          backgroundColor="rgba(0, 0, 0, 0.5)"
-        >
-          <YStack
-            backgroundColor="white"
-            gap={20}
-            paddingVertical={20}
-            paddingHorizontal={40}
-            borderRadius={10}
-            alignItems="center"
-            minHeight={350}
-            minWidth={300}
-          >
-            <SizableText size="$6" fontWeight="bold">
-              Seleccionar Moneda
-            </SizableText>
-            <XStack gap={20} alignItems="center">
-              <Picker<Currency>
-                selectedValue={selectedCurrency}
-                onValueChange={(itemValue) => setSelectedCurrency(itemValue)}
-                style={styles.picker}
-              >
-                {currencyOptions.map((option) => (
-                  <Picker.Item
-                    key={option.value}
-                    label={option.label}
-                    value={option.value}
-                  />
-                ))}
-              </Picker>
-            </XStack>
-            <XStack gap={20} marginTop={40}>
-              <Button onPress={() => setIsVisible(false)} chromeless>
-                Cancelar
-              </Button>
-              <Button
-                backgroundColor="$blue10"
-                color="white"
-                onPress={handleConfirm}
-              >
-                Confirmar
-              </Button>
-            </XStack>
-          </YStack>
-        </YStack>
-      </Modal>
+      <ModalDialog isVisible={isVisible} onClose={() => setIsVisible(false)}>
+        <ModalDialog.Content title="Seleccionar Moneda">
+          <XStack gap={20} alignItems="center">
+            <Picker<Currency>
+              selectedValue={selectedCurrency}
+              onValueChange={(itemValue) => setSelectedCurrency(itemValue)}
+              style={styles.picker}
+            >
+              {currencyOptions.map((option) => (
+                <Picker.Item
+                  key={option.value}
+                  label={option.label}
+                  value={option.value}
+                />
+              ))}
+            </Picker>
+          </XStack>
+        </ModalDialog.Content>
+
+        <ModalDialog.Footer>
+          <XStack gap={20}>
+            <Button onPress={() => setIsVisible(false)} chromeless>
+              Cancelar
+            </Button>
+            <Button
+              backgroundColor="$blue10"
+              color="white"
+              onPress={handleConfirm}
+            >
+              Confirmar
+            </Button>
+          </XStack>
+        </ModalDialog.Footer>
+      </ModalDialog>
     </>
   );
 }

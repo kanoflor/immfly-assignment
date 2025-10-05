@@ -1,7 +1,8 @@
 import { Picker } from "@react-native-picker/picker";
 import { Dispatch, SetStateAction, useState } from "react";
-import { Modal, StyleSheet } from "react-native";
-import { Button, XStack, YStack } from "tamagui";
+import { StyleSheet } from "react-native";
+import { Button, XStack } from "tamagui";
+import { ModalDialog } from "../../components/ModalDialog";
 
 export const productTypeValues = [
   "business",
@@ -50,59 +51,38 @@ export function ProductTypePicker({
   };
 
   return (
-    <Modal
-      visible={isVisible}
-      animationType="fade"
-      transparent={true}
-      onRequestClose={onClose}
-    >
-      <YStack
-        flex={1}
-        alignItems="center"
-        justifyContent="center"
-        backgroundColor="rgba(0, 0, 0, 0.5)"
-      >
-        <YStack
-          backgroundColor="white"
-          gap={20}
-          paddingVertical={20}
-          paddingHorizontal={40}
-          borderRadius={10}
-          alignItems="center"
-          minHeight={300}
-          minWidth={300}
+    <ModalDialog isVisible={isVisible} onClose={onClose}>
+      <ModalDialog.Content title="Seleccionar Tipo de Producto">
+        <Picker
+          selectedValue={selectedProductTypeState}
+          onValueChange={(value) => setSelectedProductTypeState(value)}
+          style={styles.picker}
         >
-          <YStack alignItems="center">
-            <Picker
-              selectedValue={selectedProductTypeState}
-              onValueChange={(value) => setSelectedProductTypeState(value)}
-              style={styles.picker}
-            >
-              {pickerOptions.map((option) => (
-                <Picker.Item
-                  key={option.value}
-                  label={option.label}
-                  value={option.value}
-                />
-              ))}
-            </Picker>
+          {pickerOptions.map((option) => (
+            <Picker.Item
+              key={option.value}
+              label={option.label}
+              value={option.value}
+            />
+          ))}
+        </Picker>
+      </ModalDialog.Content>
 
-            <XStack gap={20}>
-              <Button onPress={onClose} chromeless>
-                Cancelar
-              </Button>
-              <Button
-                backgroundColor="$blue10"
-                color="white"
-                onPress={handleConfirm}
-              >
-                Confirmar
-              </Button>
-            </XStack>
-          </YStack>
-        </YStack>
-      </YStack>
-    </Modal>
+      <ModalDialog.Footer>
+        <XStack gap={20}>
+          <Button onPress={onClose} chromeless>
+            Cancelar
+          </Button>
+          <Button
+            backgroundColor="$blue10"
+            color="white"
+            onPress={handleConfirm}
+          >
+            Confirmar
+          </Button>
+        </XStack>
+      </ModalDialog.Footer>
+    </ModalDialog>
   );
 }
 
