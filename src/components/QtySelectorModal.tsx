@@ -18,7 +18,7 @@ export function QtySelectorModal({
   const cartItems = useCartStore((state) => state.cartItems);
   const addItemByQty = useCartStore((state) => state.addItemByQty);
 
-  const [qty, setQty] = useState(cartItems[selectedProduct.id]);
+  const [qty, setQty] = useState(cartItems[selectedProduct.id] ?? 1);
 
   const resetQty = () => {
     setQty(1);
