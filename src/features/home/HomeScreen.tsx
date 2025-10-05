@@ -1,11 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  Dimensions,
-  FlatList,
-  StyleSheet,
-  View,
-} from "react-native";
+import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
 import { XStack, YStack } from "tamagui";
 import {
   BottomSheet,
@@ -15,20 +9,18 @@ import { ProductCard } from "../../components/ProductCard";
 import { QtySelectorModal } from "../../components/QtySelectorModal";
 import { useCartStore } from "../../store/cartStore";
 import { Product, useProductStore } from "../../store/productStore";
+import {
+  COLUMNS,
+  HORIZONTAL_PADDING,
+  ITEM_SPACING,
+  ITEM_WIDTH,
+} from "../../utils/layout";
 import { HomeActionGroup } from "./HomeActionGroup";
 import {
   pickerOptions,
   ProductTypePicker,
   ProductTypeValue,
 } from "./ProductTypePicker";
-
-const { width: screenWidth } = Dimensions.get("window");
-const HORIZONTAL_PADDING = 16;
-const ITEM_SPACING = 12;
-const COLUMNS = 2;
-const ITEM_WIDTH =
-  (screenWidth - HORIZONTAL_PADDING * 2 - ITEM_SPACING * (COLUMNS - 1)) /
-  COLUMNS;
 
 export function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -77,6 +69,15 @@ export function Home() {
     [cartItems]
   );
 
+  const getItemLayout = useCallback(
+    (_data: unknown, index: number) => ({
+      length: ITEM_WIDTH,
+      offset: ITEM_WIDTH * index,
+      index,
+    }),
+    []
+  );
+
   return (
     <YStack
       flex={1}
@@ -101,7 +102,7 @@ export function Home() {
           showsVerticalScrollIndicator={false}
           refreshing={isFetching}
           onRefresh={fetchProducts}
-          // getItemLayout={getItemLayout}
+          getItemLayout={getItemLayout}
         />
       )}
       <BottomSheet>

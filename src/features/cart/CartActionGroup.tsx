@@ -1,18 +1,11 @@
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useNavigation } from "@react-navigation/native";
-import { Dimensions } from "react-native";
 import { Button, Paragraph, SizableText, XStack, YStack } from "tamagui";
 import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
 import { useCurrencyStore } from "../../store/currencyStore";
 import { useProductStore } from "../../store/productStore";
 import { formatMoney } from "../../utils/currency";
-
-const { width } = Dimensions.get("window");
-const HORIZONTAL_PADDING = 16;
-const ITEM_SPACING = 12;
-const COLUMNS = 2;
-const ITEM_WIDTH =
-  (width - HORIZONTAL_PADDING * 2 - ITEM_SPACING * (COLUMNS - 1)) / COLUMNS;
+import { ITEM_WIDTH } from "../../utils/layout";
 
 type CartActionGroupProps = {
   selectedSeat: string[];
