@@ -1,6 +1,6 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 import {
   ActivityIndicator,
   Dimensions,
@@ -8,9 +8,9 @@ import {
   ScrollView,
   StyleSheet,
   View,
-} from 'react-native';
-import ReanimatedSwipeable from 'react-native-gesture-handler/ReanimatedSwipeable';
-import Animated from 'react-native-reanimated';
+} from "react-native";
+import ReanimatedSwipeable from "react-native-gesture-handler/ReanimatedSwipeable";
+import Animated from "react-native-reanimated";
 import {
   Button,
   H4,
@@ -19,16 +19,16 @@ import {
   SizableText,
   XStack,
   YStack,
-} from 'tamagui';
-import { BottomSheet } from '../../components/BottomSheet';
-import { QtySelectorModal } from '../../components/QtySelectorModal';
-import { useCartStore } from '../../store/cartStore';
-import { useCurrencyStore } from '../../store/currencyStore';
-import { Product, useProductStore } from '../../store/productStore';
-import { currencySymbols, formatMoney } from '../../utils/currency';
-import { CartActionGroup } from './CartActionGroup';
-import { SeatPicker } from './SeatPicker';
-import { formatCartItems, FormattedCartItem } from './util';
+} from "tamagui";
+import { BottomSheet } from "../../components/BottomSheet";
+import { QtySelectorModal } from "../../components/QtySelectorModal";
+import { useCartStore } from "../../store/cartStore";
+import { useCurrencyStore } from "../../store/currencyStore";
+import { Product, useProductStore } from "../../store/productStore";
+import { currencySymbols, formatMoney } from "../../utils/currency";
+import { CartActionGroup } from "./CartActionGroup";
+import { SeatPicker } from "./SeatPicker";
+import { formatCartItems, FormattedCartItem } from "./util";
 
 function CartHeader() {
   const navigation = useNavigation();
@@ -47,7 +47,7 @@ function CartHeader() {
   );
 }
 
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth } = Dimensions.get("window");
 
 function CartListItem({
   item,
@@ -56,8 +56,8 @@ function CartListItem({
   item: FormattedCartItem;
   onPress: (product: Product) => void;
 }) {
-  const removeItem = useCartStore(state => state.removeItem);
-  const currency = useCurrencyStore(state => state.currency);
+  const removeItem = useCartStore((state) => state.removeItem);
+  const currency = useCurrencyStore((state) => state.currency);
 
   const deleteThreshold = screenWidth * 0.8;
 
@@ -116,12 +116,14 @@ export function Cart() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const [selectedSeat, setSelectedSeat] = useState<string[]>(['A', '1']);
+  const [selectedSeat, setSelectedSeat] = useState<string[]>(["A", "1"]);
   const [isSeatPickerVisible, setIsSeatPickerVisible] = useState(false);
 
-  const cartItems = useCartStore(state => state.cartItems);
-  const byId = useProductStore(state => state.byId);
-  const isProcessingPayment = useCartStore(state => state.isProcessingPayment);
+  const cartItems = useCartStore((state) => state.cartItems);
+  const byId = useProductStore((state) => state.byId);
+  const isProcessingPayment = useCartStore(
+    (state) => state.isProcessingPayment
+  );
 
   const formattedCartItems = formatCartItems(cartItems, byId);
 
@@ -142,7 +144,7 @@ export function Cart() {
         >
           <YStack>
             {formattedCartItems.length > 0 ? (
-              formattedCartItems.map(item => (
+              formattedCartItems.map((item) => (
                 <CartListItem
                   key={item.id}
                   item={item}
@@ -193,26 +195,26 @@ export function Cart() {
 
 const styles = StyleSheet.create({
   deleteAction: {
-    alignItems: 'flex-end',
-    backgroundColor: '#ff4444',
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: "#ff4444",
+    justifyContent: "center",
+    alignItems: "flex-end",
   },
   deleteButton: {
-    alignItems: 'center',
-    height: '100%',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     width: 60,
+    height: "100%",
   },
   loadingOverlay: {
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    bottom: 0,
-    justifyContent: 'center',
-    left: 0,
-    position: 'absolute',
-    right: 0,
+    position: "absolute",
     top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
     zIndex: 1000,
   },
 });

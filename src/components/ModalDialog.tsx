@@ -1,6 +1,6 @@
-import React, { createContext } from 'react';
-import { Modal } from 'react-native';
-import { SizableText, YStack } from 'tamagui';
+import React, { createContext } from "react";
+import { Modal } from "react-native";
+import { SizableText, YStack } from "tamagui";
 
 type ModalDialogContextType = {
   isVisible: boolean;

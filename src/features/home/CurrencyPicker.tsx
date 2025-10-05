@@ -1,34 +1,36 @@
-import { Picker } from '@react-native-picker/picker';
-import { useState } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
-import { Button, Text, XStack } from 'tamagui';
-import { ModalDialog } from '../../components/ModalDialog';
-import { createSelectSubtotalEUR, useCartStore } from '../../store/cartStore';
-import { useCurrencyStore } from '../../store/currencyStore';
-import { useProductStore } from '../../store/productStore';
-import { Currency, formatMoney } from '../../utils/currency';
-import { PickerOption } from './ProductTypePicker';
+import { Picker } from "@react-native-picker/picker";
+import { useState } from "react";
+import { Pressable, StyleSheet } from "react-native";
+import { Button, Text, XStack } from "tamagui";
+import { ModalDialog } from "../../components/ModalDialog";
+import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
+import { useCurrencyStore } from "../../store/currencyStore";
+import { useProductStore } from "../../store/productStore";
+import { Currency, formatMoney } from "../../utils/currency";
+import { PickerOption } from "./ProductTypePicker";
 
 const currencyOptions: PickerOption<Currency>[] = [
-  { label: 'EUR', value: 'EUR' },
-  { label: 'USD', value: 'USD' },
-  { label: 'GBP', value: 'GBP' },
+  { label: "EUR", value: "EUR" },
+  { label: "USD", value: "USD" },
+  { label: "GBP", value: "GBP" },
 ];
 
 export function CurrencyPicker() {
-  const currency = useCurrencyStore(state => state.currency);
-  const setCurrency = useCurrencyStore(state => state.setCurrency);
+  const currency = useCurrencyStore((state) => state.currency);
+  const setCurrency = useCurrencyStore((state) => state.setCurrency);
 
-  const byId = useProductStore(state => state.byId);
+  const byId = useProductStore((state) => state.byId);
   const subtotalEUR = useCartStore(createSelectSubtotalEUR(byId));
 
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCurrency, setSelectedCurrency] = useState<Currency>(currency);
 
   const buttonTitle = currencyOptions
-    .filter(option => option.value !== currency)
-    .map(option => `${formatMoney(subtotalEUR, option.value)} ${option.label}`)
-    .join(' | ');
+    .filter((option) => option.value !== currency)
+    .map(
+      (option) => `${formatMoney(subtotalEUR, option.value)} ${option.label}`
+    )
+    .join(" | ");
 
   const handleConfirm = () => {
     setCurrency(selectedCurrency);
@@ -46,10 +48,10 @@ export function CurrencyPicker() {
           <XStack gap={20} alignItems="center">
             <Picker<Currency>
               selectedValue={selectedCurrency}
-              onValueChange={itemValue => setSelectedCurrency(itemValue)}
+              onValueChange={(itemValue) => setSelectedCurrency(itemValue)}
               style={styles.picker}
             >
-              {currencyOptions.map(option => (
+              {currencyOptions.map((option) => (
                 <Picker.Item
                   key={option.value}
                   label={option.label}

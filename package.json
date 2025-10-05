@@ -1,18 +1,13 @@
 {
   "name": "immfly-assignment",
   "version": "1.0.0",
-  "type": "module",
   "main": "index.tsx",
   "scripts": {
     "start": "expo start --dev-client",
     "web": "expo start --web",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "test": "jest --watchAll",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "@expo/metro-runtime": "~6.1.2",
@@ -44,21 +39,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@eslint/js": "^9.37.0",
     "@testing-library/react-native": "^13.3.3",
     "@types/jest": "^30.0.0",
     "@types/react": "~19.1.10",
-    "@typescript-eslint/eslint-plugin": "^8.45.0",
-    "@typescript-eslint/parser": "^8.45.0",
-    "eslint": "^9.37.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^6.1.1",
-    "eslint-plugin-react-native": "^5.0.0",
     "jest": "~29.7.0",
     "jest-expo": "~54.0.12",
-    "prettier": "^3.6.2",
     "typescript": "~5.9.2"
   },
   "jest": {

@@ -1,6 +1,6 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react';
-import { LayoutChangeEvent } from 'react-native';
-import { YStack, YStackProps } from 'tamagui';
+import React, { createContext, ReactNode, useContext, useState } from "react";
+import { LayoutChangeEvent } from "react-native";
+import { YStack, YStackProps } from "tamagui";
 
 // BottomSheet Context
 type BottomSheetContextType = {
@@ -29,7 +29,7 @@ export function useBottomSheetHeight() {
   const context = useContext(BottomSheetContext);
   if (context === undefined) {
     throw new Error(
-      'useBottomSheetHeight must be used within a BottomSheetProvider'
+      "useBottomSheetHeight must be used within a BottomSheetProvider"
     );
   }
   return context;
@@ -40,14 +40,14 @@ type BottomSheetProps = {
   children: React.ReactNode;
 } & Omit<
   YStackProps,
-  | 'position'
-  | 'bottom'
-  | 'left'
-  | 'right'
-  | 'width'
-  | 'borderTopLeftRadius'
-  | 'borderTopRightRadius'
-  | 'onLayout'
+  | "position"
+  | "bottom"
+  | "left"
+  | "right"
+  | "width"
+  | "borderTopLeftRadius"
+  | "borderTopRightRadius"
+  | "onLayout"
 >;
 
 export function BottomSheet({ children, ...props }: BottomSheetProps) {

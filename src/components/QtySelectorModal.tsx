@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { Button, SizableText, XGroup, XStack } from 'tamagui';
-import { useCartStore } from '../store/cartStore';
-import { Product } from '../store/productStore';
-import { ModalDialog } from './ModalDialog';
+import { useState } from "react";
+import { Button, SizableText, XGroup, XStack } from "tamagui";
+import { useCartStore } from "../store/cartStore";
+import { Product } from "../store/productStore";
+import { ModalDialog } from "./ModalDialog";
 
 type QtySelectorModalProps = {
   selectedProduct: Product;
@@ -15,8 +15,8 @@ export function QtySelectorModal({
   visible,
   onClose,
 }: QtySelectorModalProps) {
-  const cartItems = useCartStore(state => state.cartItems);
-  const addItemByQty = useCartStore(state => state.addItemByQty);
+  const cartItems = useCartStore((state) => state.cartItems);
+  const addItemByQty = useCartStore((state) => state.addItemByQty);
 
   const [qty, setQty] = useState(cartItems[selectedProduct.id] ?? 1);
 

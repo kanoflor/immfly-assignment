@@ -1,7 +1,7 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
-import { Currency } from '../utils/currency';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
+import { Currency } from "../utils/currency";
 
 type CurrencyStore = {
   currency: Currency;
@@ -10,14 +10,14 @@ type CurrencyStore = {
 
 export const useCurrencyStore = create<CurrencyStore>()(
   persist(
-    set => ({
-      currency: 'EUR',
-      setCurrency: currency => set({ currency }),
+    (set) => ({
+      currency: "EUR",
+      setCurrency: (currency) => set({ currency }),
     }),
     {
-      name: 'currency-store',
+      name: "currency-store",
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: state => ({ currency: state.currency }),
+      partialize: (state) => ({ currency: state.currency }),
     }
   )
 );

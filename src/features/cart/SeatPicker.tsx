@@ -1,10 +1,10 @@
-import { Picker } from '@react-native-picker/picker';
-import { useState } from 'react';
-import { StyleSheet } from 'react-native';
-import { Button, XStack } from 'tamagui';
-import { ModalDialog } from '../../components/ModalDialog';
+import { Picker } from "@react-native-picker/picker";
+import { useState } from "react";
+import { StyleSheet } from "react-native";
+import { Button, XStack } from "tamagui";
+import { ModalDialog } from "../../components/ModalDialog";
 
-const seatLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K'];
+const seatLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K"];
 
 const seatNumbers = Array.from({ length: 30 }, (_, i) => (i + 1).toString());
 
@@ -36,20 +36,20 @@ export function SeatPicker({
         <XStack gap={20} alignItems="center">
           <Picker
             selectedValue={selectedLetter}
-            onValueChange={value => setSelectedLetter(value)}
+            onValueChange={(value) => setSelectedLetter(value)}
             style={styles.picker}
           >
-            {seatLetters.map(letter => (
+            {seatLetters.map((letter) => (
               <Picker.Item key={letter} label={letter} value={letter} />
             ))}
           </Picker>
 
           <Picker
             selectedValue={selectedNumber}
-            onValueChange={value => setSelectedNumber(value)}
+            onValueChange={(value) => setSelectedNumber(value)}
             style={styles.picker}
           >
-            {seatNumbers.map(number => (
+            {seatNumbers.map((number) => (
               <Picker.Item key={number} label={number} value={number} />
             ))}
           </Picker>
@@ -77,7 +77,7 @@ export function SeatPicker({
 const styles = StyleSheet.create({
   picker: {
     fontSize: 18,
-    height: 150,
     width: 150,
+    height: 150,
   },
 });

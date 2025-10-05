@@ -1,26 +1,26 @@
-import { useCallback, useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, StyleSheet, View } from 'react-native';
-import { XStack, YStack } from 'tamagui';
+import { useCallback, useEffect, useState } from "react";
+import { ActivityIndicator, FlatList, StyleSheet, View } from "react-native";
+import { XStack, YStack } from "tamagui";
 import {
   BottomSheet,
   useBottomSheetHeight,
-} from '../../components/BottomSheet';
-import { ProductCard } from '../../components/ProductCard';
-import { QtySelectorModal } from '../../components/QtySelectorModal';
-import { useCartStore } from '../../store/cartStore';
-import { Product, useProductStore } from '../../store/productStore';
+} from "../../components/BottomSheet";
+import { ProductCard } from "../../components/ProductCard";
+import { QtySelectorModal } from "../../components/QtySelectorModal";
+import { useCartStore } from "../../store/cartStore";
+import { Product, useProductStore } from "../../store/productStore";
 import {
   COLUMNS,
   HORIZONTAL_PADDING,
   ITEM_SPACING,
   ITEM_WIDTH,
-} from '../../utils/layout';
-import { HomeActionGroup } from './HomeActionGroup';
+} from "../../utils/layout";
+import { HomeActionGroup } from "./HomeActionGroup";
 import {
   pickerOptions,
   ProductTypePicker,
   ProductTypeValue,
-} from './ProductTypePicker';
+} from "./ProductTypePicker";
 
 export function Home() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -31,11 +31,11 @@ export function Home() {
   const [isProductTypePickerVisible, setIsProductTypePickerVisible] =
     useState(false);
 
-  const products = useProductStore(state => state.products);
-  const fetchProducts = useProductStore(state => state.fetchProducts);
-  const isFetching = useProductStore(state => state.isFetching);
+  const products = useProductStore((state) => state.products);
+  const fetchProducts = useProductStore((state) => state.fetchProducts);
+  const isFetching = useProductStore((state) => state.isFetching);
 
-  const cartItems = useCartStore(state => state.cartItems);
+  const cartItems = useCartStore((state) => state.cartItems);
 
   const { height: bottomSheetHeight } = useBottomSheetHeight();
 
@@ -92,7 +92,7 @@ export function Home() {
           testID="products-flatlist"
           data={products}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={(item) => item.id}
           numColumns={COLUMNS}
           contentContainerStyle={[
             styles.list,
@@ -134,16 +134,16 @@ export function Home() {
 }
 
 const styles = StyleSheet.create({
+  list: {
+    paddingBottom: 0,
+  },
+  row: {
+    justifyContent: "space-between",
+  },
   itemContainer: {
     flex: 1,
   },
   itemSpacing: {
     marginRight: ITEM_SPACING,
-  },
-  list: {
-    paddingBottom: 0,
-  },
-  row: {
-    justifyContent: 'space-between',
   },
 });

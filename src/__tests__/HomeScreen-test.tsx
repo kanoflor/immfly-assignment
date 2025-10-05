@@ -1,21 +1,21 @@
-import { act } from '@testing-library/react-native';
-import { Home } from '../features/home/HomeScreen';
-import { render } from './test-utils';
+import { act } from "@testing-library/react-native";
+import { Home } from "../features/home/HomeScreen";
+import { render } from "./test-utils";
 
-jest.mock('@react-native-async-storage/async-storage', () => ({
+jest.mock("@react-native-async-storage/async-storage", () => ({
   getItem: jest.fn(),
   setItem: jest.fn(),
   removeItem: jest.fn(),
 }));
 
-jest.mock('../store/productStore.ts', () => ({
+jest.mock("../store/productStore.ts", () => ({
   useProductStore: jest.fn(),
 }));
 
-describe('<Home />', () => {
+describe("<Home />", () => {
   beforeEach(() => {
     const mockUseProductStore =
-      require('../store/productStore.ts').useProductStore;
+      require("../store/productStore.ts").useProductStore;
     mockUseProductStore.mockImplementation((selector: any) => {
       const state = {
         products: [],
@@ -26,11 +26,11 @@ describe('<Home />', () => {
     });
   });
 
-  test('FlatList renders correctly', async () => {
+  test("FlatList renders correctly", async () => {
     const { getByTestId } = render(<Home />, {});
 
     await act(async () => {});
 
-    expect(getByTestId('products-flatlist')).toBeTruthy();
+    expect(getByTestId("products-flatlist")).toBeTruthy();
   });
 });
