@@ -5,6 +5,7 @@ import {
   ActivityIndicator,
   Dimensions,
   Pressable,
+  ScrollView,
   StyleSheet,
   View,
 } from "react-native";
@@ -136,15 +137,29 @@ export function Cart() {
       <YStack gap={20} flex={1} paddingVertical={30} paddingHorizontal={20}>
         <CartHeader />
 
-        <YStack>
-          {formattedCartItems.map((item) => (
-            <CartListItem
-              key={item.id}
-              item={item}
-              onPress={handlePresentModalPress}
-            />
-          ))}
-        </YStack>
+        <ScrollView
+          style={{ flex: 1 }}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 20 }}
+        >
+          <YStack>
+            {formattedCartItems.length > 0 ? (
+              formattedCartItems.map((item) => (
+                <CartListItem
+                  key={item.id}
+                  item={item}
+                  onPress={handlePresentModalPress}
+                />
+              ))
+            ) : (
+              <YStack alignItems="center" paddingVertical={40}>
+                <SizableText theme="alt2" size="$4">
+                  No items in cart
+                </SizableText>
+              </YStack>
+            )}
+          </YStack>
+        </ScrollView>
 
         <BottomSheet>
           <CartActionGroup
