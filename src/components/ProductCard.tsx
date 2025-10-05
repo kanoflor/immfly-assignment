@@ -77,6 +77,8 @@ export function ProductCard({
       <Card.Background borderRadius={10}>
         <Image
           alignSelf="center"
+          backgroundColor="white"
+          opacity={0.7}
           source={{
             width: 300,
             height: 300,
