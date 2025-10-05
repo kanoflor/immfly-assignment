@@ -6,11 +6,11 @@ import {
   Text,
   XStack,
   YStack,
-} from "tamagui";
-import { useCurrencyStore } from "../store/currencyStore";
-import { Product } from "../store/productStore";
-import { currencySymbols, formatMoney } from "../utils/currency";
-import { NumberCircle } from "./NumberCircle";
+} from 'tamagui';
+import { useCurrencyStore } from '../store/currencyStore';
+import { Product } from '../store/productStore';
+import { currencySymbols, formatMoney } from '../utils/currency';
+import { NumberCircle } from './NumberCircle';
 
 type ProductCardProps = {
   product: Product;
@@ -24,7 +24,7 @@ export function ProductCard({
   onPress,
   ...props
 }: ProductCardProps) {
-  const currency = useCurrencyStore((state) => state.currency);
+  const currency = useCurrencyStore(state => state.currency);
 
   const PriceTag = () => {
     return (

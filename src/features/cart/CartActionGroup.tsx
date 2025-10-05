@@ -1,11 +1,11 @@
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import { useNavigation } from "@react-navigation/native";
-import { Button, Paragraph, SizableText, XStack, YStack } from "tamagui";
-import { createSelectSubtotalEUR, useCartStore } from "../../store/cartStore";
-import { useCurrencyStore } from "../../store/currencyStore";
-import { useProductStore } from "../../store/productStore";
-import { formatMoney } from "../../utils/currency";
-import { ITEM_WIDTH } from "../../utils/layout";
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useNavigation } from '@react-navigation/native';
+import { Button, Paragraph, SizableText, XStack, YStack } from 'tamagui';
+import { createSelectSubtotalEUR, useCartStore } from '../../store/cartStore';
+import { useCurrencyStore } from '../../store/currencyStore';
+import { useProductStore } from '../../store/productStore';
+import { formatMoney } from '../../utils/currency';
+import { ITEM_WIDTH } from '../../utils/layout';
 
 type CartActionGroupProps = {
   selectedSeat: string[];
@@ -72,11 +72,11 @@ export function CartActionGroup({
 }: CartActionGroupProps) {
   const navigation = useNavigation();
 
-  const byId = useProductStore((state) => state.byId);
+  const byId = useProductStore(state => state.byId);
   const subtotalEUR = useCartStore(createSelectSubtotalEUR(byId));
-  const checkout = useCartStore((state) => state.checkout);
+  const checkout = useCartStore(state => state.checkout);
 
-  const currency = useCurrencyStore((state) => state.currency);
+  const currency = useCurrencyStore(state => state.currency);
 
   const handlePayment = async () => {
     try {

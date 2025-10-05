@@ -1,7 +1,7 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { create } from "zustand";
-import { createJSONStorage, persist } from "zustand/middleware";
-import { ProductsById, useProductStore } from "./productStore";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
+import { ProductsById, useProductStore } from './productStore';
 
 export type CartItems = Record<string, number>;
 
@@ -44,19 +44,19 @@ export const useCartStore = create<CartStore>()(
     (set, get) => ({
       ...initial,
 
-      addOne: (productId) =>
-        set((state) => ({
+      addOne: productId =>
+        set(state => ({
           cartItems: {
             ...state.cartItems,
             [productId]: (state.cartItems[productId] ?? 0) + 1,
           },
         })),
 
-      removeOne: (productId) =>
-        set((state) => {
+      removeOne: productId =>
+        set(state => {
           const current = state.cartItems[productId] ?? 0;
           if (current <= 1) {
-            const { [productId]: _, ...rest } = state.cartItems;
+            const { [productId]: _unused, ...rest } = state.cartItems;
             return { cartItems: rest };
             // get().removeItem(productId);
           }
@@ -66,7 +66,7 @@ export const useCartStore = create<CartStore>()(
         }),
 
       addItemByQty: (productId, qty) =>
-        set((state) => {
+        set(state => {
           if (qty <= 0) {
             const { [productId]: _, ...rest } = state.cartItems;
             return { cartItems: rest };
@@ -77,15 +77,15 @@ export const useCartStore = create<CartStore>()(
           };
         }),
 
-      removeItem: (productId) =>
-        set((state) => {
+      removeItem: productId =>
+        set(state => {
           const { [productId]: _, ...rest } = state.cartItems;
           return { cartItems: rest };
         }),
 
       clear: () => set({ cartItems: {} }),
 
-      checkout: async (seatCode) => {
+      checkout: async seatCode => {
         const { cartItems } = get();
         const items = Object.entries(cartItems).map(([id, qty]) => ({
           id,
@@ -97,18 +97,18 @@ export const useCartStore = create<CartStore>()(
         set({ isProcessingPayment: true });
         try {
           const res = await fetch(
-            "https://my-json-server.typicode.com/kanoflor/immfly-assignment/products",
+            'https://my-json-server.typicode.com/kanoflor/immfly-assignment/products',
             {
-              method: "POST",
+              method: 'POST',
               headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
               },
-              body: JSON.stringify({ seatCode: seatCode.join(""), ...items }),
+              body: JSON.stringify({ seatCode: seatCode.join(''), ...items }),
             }
           );
           const data = await res.json().catch(() => ({}));
 
-          if (!res.ok) throw new Error("payment_failed");
+          if (!res.ok) throw new Error('payment_failed');
 
           // Reduce stock for purchased items after successful payment
           useProductStore.getState().reduceStock(items);
@@ -117,7 +117,7 @@ export const useCartStore = create<CartStore>()(
           return {
             statusCode: 200,
             ok: true,
-            paymentId: String(data?.paymentId ?? ""),
+            paymentId: String(data?.paymentId ?? ''),
           };
         } catch {
           return { statusCode: 200, ok: false };
@@ -127,9 +127,9 @@ export const useCartStore = create<CartStore>()(
       },
     }),
     {
-      name: "cart-store",
+      name: 'cart-store',
       storage: createJSONStorage(() => AsyncStorage),
-      partialize: (state) => ({ cartItems: state.cartItems }),
+      partialize: state => ({ cartItems: state.cartItems }),
     }
   )
 );

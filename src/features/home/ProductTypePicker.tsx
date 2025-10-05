@@ -1,16 +1,16 @@
-import { Picker } from "@react-native-picker/picker";
-import { Dispatch, SetStateAction, useState } from "react";
-import { StyleSheet } from "react-native";
-import { Button, XStack } from "tamagui";
-import { ModalDialog } from "../../components/ModalDialog";
+import { Picker } from '@react-native-picker/picker';
+import { Dispatch, SetStateAction, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { Button, XStack } from 'tamagui';
+import { ModalDialog } from '../../components/ModalDialog';
 
 export const productTypeValues = [
-  "business",
-  "retail",
-  "crew",
-  "happy_hour",
-  "invitacion_business",
-  "invitacion_turista",
+  'business',
+  'retail',
+  'crew',
+  'happy_hour',
+  'invitacion_business',
+  'invitacion_turista',
 ] as const;
 
 export type ProductTypeValue = (typeof productTypeValues)[number];
@@ -21,12 +21,12 @@ export type PickerOption<T> = {
 };
 
 export const pickerOptions: PickerOption<ProductTypeValue>[] = [
-  { label: "Business", value: "business" },
-  { label: "Retail", value: "retail" },
-  { label: "Crew", value: "crew" },
-  { label: "Happy hour", value: "happy_hour" },
-  { label: "Invitación business", value: "invitacion_business" },
-  { label: "Invitación turista", value: "invitacion_turista" },
+  { label: 'Business', value: 'business' },
+  { label: 'Retail', value: 'retail' },
+  { label: 'Crew', value: 'crew' },
+  { label: 'Happy hour', value: 'happy_hour' },
+  { label: 'Invitación business', value: 'invitacion_business' },
+  { label: 'Invitación turista', value: 'invitacion_turista' },
 ];
 
 type ProductTypePickerProps = {
@@ -55,10 +55,10 @@ export function ProductTypePicker({
       <ModalDialog.Content title="Seleccionar Tipo de Producto">
         <Picker
           selectedValue={selectedProductTypeState}
-          onValueChange={(value) => setSelectedProductTypeState(value)}
+          onValueChange={value => setSelectedProductTypeState(value)}
           style={styles.picker}
         >
-          {pickerOptions.map((option) => (
+          {pickerOptions.map(option => (
             <Picker.Item
               key={option.value}
               label={option.label}

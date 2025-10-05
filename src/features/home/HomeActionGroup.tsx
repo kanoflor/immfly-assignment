@@ -1,17 +1,17 @@
-import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-import { useNavigation } from "@react-navigation/native";
-import { Button, SizableText, Text, XGroup, XStack, YStack } from "tamagui";
-import { NumberCircle } from "../../components/NumberCircle";
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useNavigation } from '@react-navigation/native';
+import { Button, SizableText, Text, XGroup, XStack, YStack } from 'tamagui';
+import { NumberCircle } from '../../components/NumberCircle';
 import {
   createSelectSubtotalEUR,
   selectTotalQty,
   useCartStore,
-} from "../../store/cartStore";
-import { useCurrencyStore } from "../../store/currencyStore";
-import { useProductStore } from "../../store/productStore";
-import { formatMoney } from "../../utils/currency";
-import { CurrencyPicker } from "./CurrencyPicker";
-import { ProductTypeValue, pickerOptions } from "./ProductTypePicker";
+} from '../../store/cartStore';
+import { useCurrencyStore } from '../../store/currencyStore';
+import { useProductStore } from '../../store/productStore';
+import { formatMoney } from '../../utils/currency';
+import { CurrencyPicker } from './CurrencyPicker';
+import { ProductTypeValue, pickerOptions } from './ProductTypePicker';
 
 type HomeActionGroupProps = {
   selectedProductType: ProductTypeValue;
@@ -24,13 +24,13 @@ export function HomeActionGroup({
 }: HomeActionGroupProps) {
   const navigation = useNavigation();
 
-  const currency = useCurrencyStore((state) => state.currency);
-  const byId = useProductStore((state) => state.byId);
+  const currency = useCurrencyStore(state => state.currency);
+  const byId = useProductStore(state => state.byId);
   const subtotalEUR = useCartStore(createSelectSubtotalEUR(byId));
   const totalQty = useCartStore(selectTotalQty);
 
   const selectedProductTypeLabel =
-    pickerOptions.find((o) => o.value === selectedProductType)?.label ||
+    pickerOptions.find(o => o.value === selectedProductType)?.label ||
     selectedProductType;
 
   return (
@@ -41,7 +41,7 @@ export function HomeActionGroup({
             backgroundColor="$blue10"
             size="$6"
             disabled={totalQty === 0}
-            onPress={() => navigation.navigate("Cart")}
+            onPress={() => navigation.navigate('Cart')}
           >
             <SizableText color="white" size="$5">
               PAGAR

@@ -1,9 +1,9 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { defaultConfig } from "@tamagui/config/v4";
-import { render, RenderOptions } from "@testing-library/react-native";
-import { ReactElement, ReactNode } from "react";
-import { createTamagui, TamaguiProvider } from "tamagui";
-import { BottomSheetProvider } from "../components/BottomSheet";
+import { NavigationContainer } from '@react-navigation/native';
+import { defaultConfig } from '@tamagui/config/v4';
+import { render, RenderOptions } from '@testing-library/react-native';
+import { ReactElement, ReactNode } from 'react';
+import { createTamagui, TamaguiProvider } from 'tamagui';
+import { BottomSheetProvider } from '../components/BottomSheet';
 
 const config = createTamagui(defaultConfig);
 
@@ -24,5 +24,5 @@ export const AllTheProviders = ({ children }: AllTheProvidersProps) => {
 const customRender = (ui: ReactElement, options: RenderOptions) =>
   render(ui, { wrapper: AllTheProviders, ...options });
 
-export * from "@testing-library/react-native";
+export * from '@testing-library/react-native';
 export { customRender as render };

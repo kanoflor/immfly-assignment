@@ -1,5 +1,5 @@
-import { CartItems } from "../../store/cartStore";
-import { Product, ProductsById } from "../../store/productStore";
+import { CartItems } from '../../store/cartStore';
+import { Product, ProductsById } from '../../store/productStore';
 
 export type FormattedCartItem = Product & {
   qty: number;
@@ -12,7 +12,7 @@ export const formatCartItems = (cartItems: CartItems, byId: ProductsById) => {
     return {
       id,
       stock: product?.stock,
-      name: product?.name ?? "",
+      name: product?.name ?? '',
       priceEUR: product?.priceEUR ?? 0,
       image: product?.image,
       qty,

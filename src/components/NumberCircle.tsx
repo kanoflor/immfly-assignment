@@ -1,10 +1,10 @@
-import { Circle, FontSizeTokens, SizableText, SizeTokens } from "tamagui";
+import { Circle, FontSizeTokens, SizableText, SizeTokens } from 'tamagui';
 
 export function NumberCircle({
   number,
   backgroundColor,
-  circleSize = "$3",
-  textSize = "$5",
+  circleSize = '$3',
+  textSize = '$5',
 }: {
   number: number;
   backgroundColor: string;
